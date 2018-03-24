@@ -1,0 +1,81 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<title>Map</title>
+<script src="../assets/js/ammap_election.js"></script>         
+<script src="../assets/js/hp-map.js"></script>
+<script src="../assets/js/light.js"></script>
+<style>
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  
+}
+
+
+#chartdiv {
+  width: 100%;
+  height: 100%;
+}
+
+.ammapDescriptionWindow {
+  background-color: #fff;
+  box-shadow:0 0 5px #333;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: Verdana;
+  font-size: 10px;
+  opacity: 0.95;
+  overflow: auto;
+} 
+
+.ammapDescriptionTitle {
+  font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+<div id="chartdiv"></div>
+<script>
+
+
+var map = AmCharts.makeChart("chartdiv", {
+  "type": "map",
+  "theme": "light",
+  "dataProvider": {
+    "map": "maphm",
+    "areas": [
+{"id":"8021","title":"LAHAUL-SPITI (ST)","description":"description1"},{"id":"8067","title":"ROHRU (SC)","description":"description2"},{"id":"8066","title":"RAMPUR (SC)","description":"description3"},{"id":"8065","title":"JUBBAL KOTKHAI","description":"description4"},{"id":"8023","title":"KULLU","description":"description5"},{"id":"8024","title":"BANJAR","description":"description6"},{"id":"8058","title":"PAONTA SAHIB","description":"description7"},{"id":"8060","title":"CHOPAL","description":"description8"},{"id":"8059","title":"SHILLAI","description":"description9"},{"id":"8025","title":"ANNI (SC)","description":"description10"},{"id":"8057","title":"SRI RENUKAJI (SC)","description":"description11"},{"id":"8061","title":"THEOG","description":"description12"},{"id":"8056","title":"NAHAN","description":"description13"},{"id":"8055","title":"PACHHAD (SC)","description":"description14"},{"id":"8022","title":"MANALI","description":"description15"},{"id":"8026","title":"KARSOG (SC)","description":"description16"},{"id":"8029","title":"SERAJ","description":"description17"},{"id":"8053","title":"SOLAN (SC)","description":"description18"},{"id":"8030","title":"DARANG","description":"description19"},{"id":"8028","title":"NACHAN (SC)","description":"description20"},{"id":"8020","title":"BAIJNATH (SC)","description":"description21"},{"id":"8027","title":"SUNDERNAGAR","description":"description22"},{"id":"8054","title":"KASAULI (SC)","description":"description23"},{"id":"8050","title":"ARKI","description":"description24"},{"id":"8034","title":"BALH (SC)","description":"description25"},{"id":"8033","title":"MANDI","description":"description26"},{"id":"8052","title":"DOON","description":"description27"},{"id":"8002","title":"BHARMOUR (ST)","description":"description28"},{"id":"8031","title":"JOGINDERNAGAR","description":"description29"},{"id":"8048","title":"BILASPUR","description":"description30"},{"id":"8035","title":"SARKAGHAT","description":"description31"},{"id":"8001","title":"CHURAH (SC)","description":"description32"},{"id":"8032","title":"DHARAMPUR","description":"description33"},{"id":"8051","title":"NALAGARH","description":"description34"},{"id":"8047","title":"GHUMARWIN","description":"description35"},{"id":"8046","title":"JHANDUTA (SC)","description":"description36"},{"id":"8036","title":"BHORANJ (SC)","description":"description37"},{"id":"8013","title":"JAISINGHPUR (SC)","description":"description38"},{"id":"8019","title":"PALAMPUR","description":"description39"},{"id":"8037","title":"SUJANPUR","description":"description40"},{"id":"8038","title":"HAMIRPUR","description":"description41"},{"id":"8039","title":"BARSAR","description":"description42"},{"id":"8014","title":"SULLAH","description":"description43"},{"id":"8040","title":"NADAUN","description":"description44"},{"id":"8018","title":"DHARAMSHALA","description":"description45"},{"id":"8012","title":"JAWALAMUKHI","description":"description46"},{"id":"8015","title":"NAGROTA","description":"description47"},{"id":"8045","title":"KUTLEHAR","description":"description48"},{"id":"8003","title":"CHAMBA","description":"description49"},{"id":"8017","title":"SHAHPUR","description":"description50"},{"id":"8016","title":"KANGRA","description":"description51"},{"id":"8044","title":"UNA","description":"description52"},{"id":"8043","title":"HAROLI","description":"description53"},{"id":"8041","title":"CHINTPURNI (SC)","description":"description54"},{"id":"8010","title":"DEHRA","description":"description55"},{"id":"8005","title":"BHATTIYAT","description":"description56"},{"id":"8004","title":"DALHOUSIE","description":"description57"},{"id":"8009","title":"JAWALI","description":"description58"},{"id":"8042","title":"GAGRET","description":"description59"},{"id":"8006","title":"NURPUR","description":"description60"},{"id":"8008","title":"FATEHPUR","description":"description61"},{"id":"8007","title":"INDORA (SC)","description":"description62"},{"id":"8064","title":"SHIMLA RURAL","description":"description63"},{"id":"8062","title":"KASUMPTI","description":"description64"},{"id":"8063","title":"SHIMLA","description":"description65"},{"id":"8011","title":"JASWAN-PRAGPUR","description":"description66"},{"id":"8049","title":"SHRI NAINA DEVIJI","description":"description67"}
+	] 
+  },
+  "smallMap": {
+   "backgroundAlpha": 0.4
+         },
+  "zoomduration":0.1,
+  "areasSettings": {
+    "bringForwardOnHover":true, 
+    "autoZoom": true,
+    "color": "#1A5FFF",
+    "rollOverColor": "#00298B",
+    "descriptionWindowY": 20,
+    "descriptionWindowX": 550,
+    "descriptionWindowWidth": 300,
+    "descriptionWindowHeight": 330
+  }
+});
+</script>
+
+
+
+</body>
+</html>
+
+

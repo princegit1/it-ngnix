@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body onload="loadData()">
+	
+<div class="cont"></div>
+
+<select onChange="aa(this.value)">
+</select>
+
+
+<script type="text/javascript">
+
+	function aa(i){
+var xmlhttp;
+if(window.XMLHttpRequest)
+{
+	xmlhttp = new XMLHttpRequest();
+}
+else
+{
+	xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+}
+
+xmlhttp.onreadystatechange = function(){
+	if(this.readyState==4 && this.status==200){
+         funct(this,i);
+	}
+
+};
+
+
+	xmlhttp.open('GET','cd_catalog.xml',true);
+	xmlhttp.send();
+
+
+}
+
+function htmlData(i,x){
+	var y = document.getElementsByClassName('cont')[0];
+	y.innerHTML = "<table border=1><tr><td>TITLE</td><td>"+x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue+"</td></tr><tr><td>ARTIST</td><td>"+x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue+"</td></tr><tr><td>COUNTRY</td><td>"+x[i].getElementsByTagName("COUNTRY")[0].childNodes[0].nodeValue+"</td></tr><tr><td>COMPANY</td><td>"+x[i].getElementsByTagName("COMPANY")[0].childNodes[0].nodeValue+"</td></tr><tr><td>PRICE</td><td>"+x[i].getElementsByTagName("PRICE")[0].childNodes[0].nodeValue;+"</td></tr><tr><td>YEAR</td><td>"+x[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue+"</td></tr></table>";
+}
+
+function funct(xml,i){
+	var xmlDoc = xml.responseXML;
+	var x = xmlDoc.getElementsByTagName('CD');
+
+	
+	htmlData(i,x);
+	
+
+}
+
+function pop1(xml){
+var xmlDoc = xml.responseXML;
+var x = xmlDoc.getElementsByTagName('CD');
+var y = document.getElementsByTagName('select')[0];
+var z;
+y.innerHTML="";
+for(var i=0;i<x.length;i++){
+z += "<option value='"+i+"'>"+x[i].getElementsByTagName('TITLE')[0].childNodes[0].nodeValue+"</option>";
+}
+y.innerHTML = z;
+
+htmlData(0,x);
+
+}
+
+function loadData(){
+	var xmlhttp;
+
+	if(window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();
+	}
+	else
+	{
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+    xmlhttp.onreadystatechange = function(){
+    	if(this.readyState==4 && this.status==200){
+              pop1(this);
+    	}
+    };
+	xmlhttp.open("GET","cd_catalog.xml",true);
+	xmlhttp.send();
+
+}
+</script>
+
+</body>
+</html>

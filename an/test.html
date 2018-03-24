@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ang</title>
+</head>
+<body ng-app="app1">
+	<script src="angular.min.js"></script>
+	<script src="angular-route.min.js"></script>
+<div class="" ng-controller="ctrl">
+
+{{name}}
+{{header}}
+{{myUrl}}
+{{fun1()}}
+<md></md>
+
+
+<h1>{{t}}</h1>
+<ng-view></ng-view>
+
+<input type="text"  ng-keydown="">
+
+{{cl}}
+<ul>
+<li ng-repeat="i in data1">{{i}}</li>
+</ul>
+</div>
+
+<!-- <div class="" ng-controller="ctrl1">
+
+{{content}}
+</div>
+ -->
+
+<script type="text/javascript">
+var app = angular.module('app1', ["ngRoute"]);
+app.controller('ctrl', function($scope,$location,$timeout,$interval,cal){
+	$scope.name = "ASD ASD";
+	 $scope.myUrl = $location.absUrl();
+	 $scope.t = new Date().toLocaleTimeString();
+$interval(function(){
+	$scope.header = " DDDD DDD ";
+	$scope.t = new Date().toLocaleTimeString();
+},1000);
+	$scope.fun1 = function()
+	{
+		var a =15;
+		var b = 40;
+		var c = a+b;
+		return c;
+	};
+
+	$scope.data1 = ["ad","ad1","ad2","ad3","ad4","ad5"];
+	$scope.cl = cal.func(44);
+	
+});
+
+app.service('cal',  function(){
+	this.func = function(x){
+		return x*x;
+	}
+})
+
+/*app.config(function($routeProvider) {
+	$routeProvider
+	.when("/aa",{
+		templateUrl: "a.html"
+	})
+})
+*/
+
+app.config(function($routeProvider){
+   $routeProvider
+   .when("/", { 
+     template: " asd asd asd asd"
+   })
+   .when("/test",{
+   	template: "A adttt dtttd"
+   })
+   .otherwise({
+   	template:"<h1>asd asd asd asd </h1>"
+   });
+})
+
+app.directive('md', function(){
+	// Runs during compile
+	return {
+		template:
+		'<h1>Test Data asd asd asdasd asd asd</h1>'
+
+	};
+});
+
+
+app.controller('ctrl1',function($scope,$http){
+  /* $http.get("a.html").then(function(response){
+   	$scope.data = response.data;
+   })*/
+
+   $http({ 
+   	method:"GET",
+   	url:"a.html"
+   }).then(function mysucccess(response){
+   	$scope.content = response.data;
+   },function myerror(response){
+   	$scope.content = response.statusText;
+   })
+})
+
+
+
+
+</script>
+</body>
+</html>

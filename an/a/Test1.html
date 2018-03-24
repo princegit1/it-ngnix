@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ang</title>
+	<script src="../angular.min.js"></script>
+	<script src="../angular-route.min.js"></script>
+	<script type="text/javascript" src="../angular-sanitize.js"></script>
+
+	<style>
+.a{border:2px solid #000;}
+.b{border:2px solid #c00;}
+.c{border:2px solid #c01;}
+</style>
+</head>
+<body>
+
+<div class="content" ng-app="app11">
+
+	
+<div class="cont_1" ng-controller="ctrl">
+	{{a1}}
+
+<p ng-bind-html="a2"></p>
+<input type="text" ng-change="func1()"  ng-model="cnt1" />
+{{t1}}
+{{cnt}}
+</div>
+
+<select ng-model="hh">
+<option value="a">a</option>	
+<option value="b">b</option>	
+<option value="c">c</option>	
+</select>
+<div ng-class="hh">asd asdasdasd</div>
+
+</div>
+	<script>
+var app1 = angular.module('app11', ["ngRoute","ngSanitize"])
+app1.controller('ctrl',function($scope,jsondata){
+	$scope.a1 = "ASD AS ASD";
+	$scope.a2 = "Tggg <h3>Tggsdf sdfsdf</h3>";
+	$scope.cnt = 0;
+	$scope.func1 = function(){
+		$scope.cnt++;
+	}
+
+	//$scope.t1 = jsondata.sd(5);
+})
+
+app1.config(function($routeProvider) {
+	$routeProvider
+	   $routeProvider
+    .when("/", {
+        templateUrl : "a.html"
+    })
+     .when("/abc", {
+        templateUrl : "a.html"
+    });
+  
+})
+
+
+app1.service('jsondata',  function(){
+	this.sd = function(x){
+		return x+4;
+	}
+})
+	</script>
+</body>
+</html>

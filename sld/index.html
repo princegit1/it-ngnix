@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="http://media2.intoday.in/indiatoday/hitachi/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+<link href="http://media2.intoday.in/indiatoday/hitachi/css/swiper.min.css" rel="stylesheet"
+	type="text/css" />
+<link
+	href="http://media2.intoday.in/indiatoday/hitachi/css/hitachi_event_2017.css"
+	rel="stylesheet" type="text/css" />  
+	<style>
+	.main_image_full{position: relative;min-height: 200px;border:1px solid #ccc;}
+	.activeTh {outline: 5px solid #d00202;box-shadow: 2px 5px 10px #000000;}
+	._prt{width:47px;height:91px;display:block;position:absolute;top:50%;transform: translateY(-50%);background-size: 100%;cursor: pointer;}
+	.prev_prt{background:url(http://media2.intoday.in/indiatoday/hitachi/images/left-btn-img.png) no-repeat;left:0;}
+	.next_prt{background:url(http://media2.intoday.in/indiatoday/hitachi/images/right-btn-img.png) no-repeat;right:0;}
+	.op0{opacity: 0.3}
+	.layer_dark{background: #000;width:100%;height:100%;opacity:0.5;position: absolute;top:0;left:0;z-index:9;}
+	.loading-icon{width:40px;height:40px;position: absolute;top:50%;left:50%;z-index:99;/* transform: translate(-50%,-50%); */margin:-20px 0 0 -20px;}
+
+	.loading-icon{
+       border-bottom: 3px solid #ff0b0b;
+    border-top: 3px solid #00ffa2;
+    border-radius: 50%;
+    border-left: 3px solid #feff08;
+    border-right: 3px solid #004bff;
+    -webkit-animation: spin 4s linear infinite;
+    -moz-animation: spin 4s linear infinite;
+    animation: spin 1s linear infinite;
+
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+  .blurImage{-webkit-filter: blur(5px); filter: blur(5px);}
+
+
+	</style>  
+</head>
+<body>
+<div class="col-md-8">
+<div class="content_page_hsic">
+<div class="flash_back_container">
+<div class="main_image_full">
+<div class="layer_dark"></div>
+<span class="loading-icon"></span>
+<img src="" alt="" id="main_image" />
+
+<span class="prev_prt _prt"></span>
+<span class="next_prt _prt"></span>
+</div>   
+
+<div class="small_image_container">
+<div class="row"></div>
+</div>
+</div>
+</div>
+</div>
+<script src="http://media2.intoday.in/indiatoday/hitachi/js/jquery-3.2.1.min.js"></script>
+<script src="http://media2.intoday.in/indiatoday/hitachi/js/bootstrap.min.js"></script>
+<script src="http://media2.intoday.in/indiatoday/hitachi/js/swiper.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+var images_arr = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg","11.jpg","12.jpg","13.jpg","14.jpg","15.jpg","16.jpg"];
+var mediaPath = "http://media2.intoday.in/indiatoday/hitachi/images/thumbnail/";
+var mediaPathLarge = "http://media2.intoday.in/indiatoday/hitachi/images/photo-section/";
+var initialLargeImage="http://media2.intoday.in/indiatoday/hitachi/images/photo-section/1b.jpg";
+var i;
+var length_img_arr = images_arr.length;
+var data_cont = "";
+var divCont = $('.small_image_container .row');
+var _next = $('.next_prt');
+var _prev = $('.prev_prt');
+var _loader = $('.loading-icon,.layer_dark');
+var main_image = $('#main_image');
+var thumbImg;
+var thumbId;
+var largeImg;  
+var counter=1;
+var cl1;
+
+loadOnstartup();
+
+$('.small_img img.thumb').click(function(){
+try{	
+thumbImg = $(this).attr('src');
+thumbId = $(this).attr('data-id');    
+counter=Number(thumbId);
+largeImg=mediaPathLarge+thumbId+"b.jpg";
+changeImage(counter);
+activethumb(counter);
+}catch(e){
+	console.log("Small thumb image click: " + e);
+}
+})   
+
+main_image.on('load', function(){
+    _loader.fadeOut();
+ });
+
+
+
+$('.next_prt').click(function(){
+try{
+if(counter<length_img_arr){    
+changeImage(counter+1); 
+_prev.removeClass('op0'); 
+counter++;
+activethumb(Number(counter));
+}
+else
+{
+_next.addClass('op0');
+}
+}catch(e){
+	console.log("Next click: " + e);
+}
+
+})
+
+
+$('.prev_prt').click(function(){
+try{
+if(counter==1){
+changeImage(1);
+_prev.addClass('op0');
+
+}
+else  
+{ 
+ _next.removeClass('op0');
+changeImage(counter-1);
+counter--;
+activethumb(Number(counter));
+}
+}catch(e){
+	console.log("Previous click: " + e);
+}
+})
+
+
+function activethumb(id){
+try{
+if(id<=length_img_arr){
+cl1 = $('.col-lg-3.col-md-3.col-sm-3.col-xs-6.small_img img.thumb');
+cl1.removeClass('activeTh');
+$('.col-lg-3.col-md-3.col-sm-3.col-xs-6.small_img img.thumb[data-id="'+id+'"]').addClass('activeTh');
+}
+}catch(e){
+	console.log("Active Thumb: " + e);
+}
+}
+
+
+function changeImage(count){
+try{
+main_image.addClass('blurImage');
+_loader.css('display','block');
+main_image.addClass('blurImage');
+setTimeout(function(){
+	_loader.css('display','none');
+	main_image.removeClass('blurImage');  
+	main_image.attr('src', mediaPathLarge+Number(count)+"b.jpg");
+	
+},1000);  
+}catch(e){
+	console.log("change Image: " + e);
+}     
+}
+
+
+function loadOnstartup(){
+try{	
+	for(i=0;i<length_img_arr;i++){
+	data_cont+= '<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 small_img"><img src="'+mediaPath+images_arr[i]+'" class="thumb" data-id="'+Number(i+1)+'" alt="" /></div>';
+	}
+
+divCont.html(data_cont);
+main_image.attr('src',initialLargeImage); 
+activethumb(1);
+
+}catch(e){
+	console.log("Start up error: " + e);
+}
+}
+
+})
+
+</script>
+</body>
+</html>

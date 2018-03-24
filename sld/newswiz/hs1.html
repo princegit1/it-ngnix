@@ -1,0 +1,563 @@
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!-- Bootstrap -->
+<link href="http://media2.intoday.in/indiatoday/resources/newswiz-2017/newcss/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://media2.intoday.in/indiatoday/resources/newswiz-2017/newcss/reset.css" type="text/css">
+<link rel="stylesheet" href="http://media2.intoday.in/indiatoday/resources/newswiz-2017/newcss/style.css" type="text/css">
+<link rel="stylesheet" href="http://media2.intoday.in/indiatoday/resources/newswiz-2017/newcss/responsive.css" type="text/css">
+<link rel="stylesheet" href="http://media2.intoday.in/indiatoday/resources/newswiz/newcss/swiper.min.css" type="text/css">
+<link href="http://dotctor.github.io/jQuery.msgBox/styles/msgBoxLight.css" rel="stylesheet" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+function trim(field)
+{
+while(field.charAt(field.length-1)==" "){
+		field=field.substring(0,field.length-1);
+	}
+	while(field.charAt(0)==" "){
+		field=field.substring(1,field.length);
+	}
+	return field;
+}
+
+function handleHttpResponse2()
+{
+	var urltoPass = "test";
+	//console.log("urltoPass ----------->" + urltoPass);
+	urltoPass=trim(urltoPass);
+	if(urltoPass.length==0){
+		urltoPass = url;
+	}
+	//console.log("http2.readyState ----------->" + http2.readyState);
+	if (http2.readyState == 4) {
+		//console.log("http2.responseText ----------->" + http2.responseText);
+		var results = http2.responseText;
+		var arry = results.split('|'); 
+		var upcnt=	(arry[0]);
+		var dncnt=(arry[1]);
+		var lastcnt=(arry[2]);
+		var cmnt=(arry[3]);
+		var cid=(arry[4]);
+		//alert(cid);
+		if (http2.status == 200) {
+		ga('send', 'event', 'LIKE', 'click',urltoPass, 1, {'nonInteraction': 1});
+			document.getElementById("upcount"+cid).innerHTML = upcnt;
+			//document.getElementById("downcount"+cid).innerHTML = dncnt;
+			//document.getElementById("lastcount"+cid).innerHTML = lastcnt;
+			//document.getElementById("commenttext"+cid).innerHTML = cmnt;
+			
+		} else {                 
+			//alert('There was a problem retrieving the data');
+		} 
+	}
+}
+function getHTTPObject()
+{
+	var xmlhttp;
+	if(window.XMLHttpRequest) {
+		xmlhttp = new XMLHttpRequest();
+	} else if (window.ActiveXObject) {
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		if (!xmlhttp) {
+			xmlhttp=new ActiveXObject("Msxml2.XMLHTTP");
+		}
+	}
+	return xmlhttp;
+}
+
+var http2 = getHTTPObject();
+function changeRating1(contentId,content_type,action,part_id, upc, dwnc,lastc)
+{ 
+	upc =document.getElementById('upcount'+part_id).firstChild.nodeValue;
+	downc = '0';
+	lastc = '0';
+	totalc =upc;
+	url="http://indiatoday.intoday.in/highlights/rating_data_budget_highlights.jsp?content_id="+contentId+"&content_type="+content_type+"&action="+action+"&upcount="+upc+"&downcount="+downc+"&lastcount="+lastc+"&totalcount="+totalc+"&part_id="+part_id;
+	http2.open("GET", url, true);
+	http2.onreadystatechange = handleHttpResponse2;
+	http2.send(null);
+	setCookie("upcount5671"+part_id, "1");
+	
+		$('.upcount5665'+part_id).parent().parent().find('.vote-btn').css({'pointer-events': 'none', 'opacity': '0.3'});
+}
+</script>
+
+              
+              
+              <style type="text/css">
+.support-team{display:block; margin:10px 0 22px;}
+.support-team h2{margin: 0px 0 10px 0; padding: 12px 0 7px 12px; background: url(http://media2.intoday.in/indiatoday/resources/newswiz/newimages/support-bg.png) no-repeat;
+font-size: 20px;line-height:52px; color: #fff; text-transform: uppercase;}
+.support-team .support-slider{float:left; width:100%; background-color:#fff; padding:12px 0 0 0; overflow:hidden; position:relative; margin-bottom:30px;}
+.support-team .support-slider ul{list-style:none; margin:0; padding:0; position:relative; overflow:hidden} 
+.support-team .support-slider ul li{width:150px; float:left; padding-bottom:18px; position:relative;}
+.support_cont{ display:block;padding:0 11px;border-right:1px solid #ededed;}
+.support_cont p{font:13px/18px 'Roboto',sans-serif; color:#7a7a7a; display:block; text-align:center; min-height:83px;}
+.support-team .support-slider ul li:last-child{border:0;}
+.support-team .support-slider ul li .img-box{width:125px; height:145px; text-align:center; display:inline-block; padding:13px 0 0;}
+.support-team .support-slider ul li > span{display:inline-block; margin-top:10px; width:125px;}
+.support-team .support-slider ul li  em{font-style:normal; font:13px/16px 'Roboto',sans-serif; color:#999; padding:7px 0 0 12px; float:left;}
+.support-team .support-slider ul li strong{text-transform:uppercase; color:#000; font:normal 12px/34px 'Roboto',sans-serif; display:block; text-align:center;}
+.prev-next-area{position:absolute; right:14px; top:9%;}
+.prev-next-area a#pre{}
+.prev-next-area a#next{}
+.counter-no{text-align:center; font:12px/20px 'Roboto',sans-serif; color:#666; float:left; padding:0 14px; display:none;}
+
+.arrow_box {position: relative;background: #fff;border: 1px solid #a6b3bc; font:bold 21px/30px 'Roboto',sans-serif; color:#ce0502; text-align:center; width:58px; border-radius:2px; margin:0 auto;}
+.arrow_box:after, .arrow_box:before {top: 100%;left: 50%;border: solid transparent;content: " ";height: 0;width: 0;position: absolute;pointer-events: none;}
+.arrow_box:after {border-color: rgba(255, 255, 255, 0);border-top-color: #fff;border-width: 5px;margin-left: -5px;}
+.arrow_box:before {border-color: rgba(166, 179, 188, 0);border-top-color: #a6b3bc;border-width: 7px;margin-left: -7px;}
+.vote-btn{background:url(http://media2.intoday.in/indiatoday/resources/newswiz/newimages/vote-btn.png) no-repeat 0 0; width:125px; height:33px; display:block; margin:0 auto; margin-top:25px;}
+.vote-done-msg{background-color:#fff; width:470px; position:absolute; top:50%; left:50%; margin-left:-235px; z-index:2; padding:15px 0; display:none;}
+.vote-done-msg p{ font:15px/20px 'Roboto',sans-serif; color:#000; text-align:center; display:block; padding:0 0 0 25%; box-sizing:border-box; min-height:auto;}
+.overlay{position:fixed; background-color:rgba(0,0,0,0.7); width:100%; height:100%; z-index:1; display:none;}
+.sup_like_all.sup_like_all1{position:fixed; top: 30%; background: rgba(0,0,0,0.9); padding:10px 1%; width:300px; height:126px;  border-radius:10px; margin:0 auto; left:40%; margin-left:-150px; display:none; z-index:5;} .sup_like_all h4{ font-size: 17px; color: #fff;line-height: 21px;font-family: roboto; text-align: center;}
+.sup_like_all .share_like ul li{ width:auto; display:inline-block} .sup_like_all .share_like ul li:nth-child(1){ color:#fff;} .sup_like_all .share_like ul li a{ display:inline-block; padding:5px 15px;}
+.suplike-close{float: right; color: #fff; position: relative; right:-10px; top: -7px;}  
+@media screen and (max-width:767px){
+	.support-team h2{margin-bottom: 42px;}
+}
+  </style>
+    <div class="col-lg-8">
+              <div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="position:relative;">
+    <div class="prev-next-area">
+      <div class="prenext-cent"> <a href="javascript:void(0);" id="presupport"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/newimages/prearrow.png" alt=""></a>
+
+      <span class="counter-no"> <span class="first_t">1</span> to <span class="second_t">4</span>/<span class="tot_t"></span> </span> <a href="javascript:void(0);" id="nextsupport"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/newimages/nextarrow.png" alt=""></a> </div>
+    </div>
+    
+    <div class="support-team">
+      <h2><span>Support Your Team</span></h2>
+      <div class="support-slider">
+        <ul class="sld_sup">
+        
+                      
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/convent-of-jesus-and-mary-new-delhi.png" alt="Convent of Jesus & Mary, New Delhi"></div>
+              		<p class="fullname">Convent of Jesus & Mary, New Delhi</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/cathedral-and-john-connon-school-mumbai.png" alt="Cathedral and John Connon School, Mumbai"></div>
+              		<p class="fullname">Cathedral and John Connon School, Mumbai</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/vidya-mandir-chennai.png" alt="Vidya Mandir Sr. Sec. School, Chennai"></div>
+              		<p class="fullname">Vidya Mandir Sr. Sec. School, Chennai</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/krishna-public-school-raipur.png" alt="Krishna Public School, Raipur "></div>
+              		<p class="fullname">Krishna Public School, Raipur </p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/bvb-chandigarh.png" alt="Bhavan Vidyalaya, Chandigarh"></div>
+              		<p class="fullname">Bhavan Vidyalaya, Chandigarh</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/dps-vishakapatnam.png" alt="DELHI PUBLIC SCHOOL, VISAKHAPATNAM"></div>
+              		<p class="fullname">DELHI PUBLIC SCHOOL, VISAKHAPATNAM</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/the-shri-ram-school-moulsari-gurgaon.png" alt="The Shri Ram School, Moulsari, Gurgaon"></div>
+              		<p class="fullname">The Shri Ram School, Moulsari, Gurgaon</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/gd-somani-mumbai.png" alt="G.D. Somani Memorial School, Mumbai"></div>
+              		<p class="fullname">G.D. Somani Memorial School, Mumbai</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/sai-international-school-bhubaneswar.png" alt="Sai International School, Bhubaneswar"></div>
+              		<p class="fullname">Sai International School, Bhubaneswar</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/sdsm-jamshedpur.png" alt="SDSM School For Excellence, Jamshedpur"></div>
+              		<p class="fullname">SDSM School For Excellence, Jamshedpur</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/vibgyor-school-logo.png" alt="Vibgyor High, Balewadi, Pune"></div>
+              		<p class="fullname">Vibgyor High, Balewadi, Pune</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/saps-kerela.png" alt="St. Anthony's Public School , Anakkal, Kerela"></div>
+              		<p class="fullname">St. Anthony's Public School , Anakkal, Kerela</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/sunbeam-lahartara-varanasi.png" alt="Sunbeam Lahartara, Varanasi"></div>
+              		<p class="fullname">Sunbeam Lahartara, Varanasi</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/st-josephs-bangalore.png" alt="St. Joseph's Boys' High School, Bangalore"></div>
+              		<p class="fullname">St. Joseph's Boys' High School, Bangalore</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/dps-nagpur-logo.png" alt="Delhi Public School Nagpur"></div>
+              		<p class="fullname">Delhi Public School Nagpur</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/dps-rajnagar-ghaziabad.png" alt="Delhi Public School Rajnagar, Ghaziabad "></div>
+              		<p class="fullname">Delhi Public School Rajnagar, Ghaziabad </p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/assam-valley-tezpur.png" alt="The Assam Valley School, Tezpur"></div>
+              		<p class="fullname">The Assam Valley School, Tezpur</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/the-choice-school-kochi.png" alt="The Choice School, Kochi,Kerela"></div>
+              		<p class="fullname">The Choice School, Kochi,Kerela</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/springdales-logo-imprvd.png" alt="Springdales Pusa Road, New Delhi"></div>
+              		<p class="fullname">Springdales Pusa Road, New Delhi</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/heritage-school-kolkata-logo.png" alt="The Heritage School Kolkata"></div>
+              		<p class="fullname">The Heritage School Kolkata</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/st-marys-pune.png" alt="St. Mary's School, Pune"></div>
+              		<p class="fullname">St. Mary's School, Pune</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/gitanjali-devshala-hyderabad.png" alt="Gitanjali Devshala, Hyderabad"></div>
+              		<p class="fullname">Gitanjali Devshala, Hyderabad</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/dps-guwahati.png" alt="Delhi Public School, Guwahati city"></div>
+              		<p class="fullname">Delhi Public School, Guwahati city</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/navrachana-vadodara-logo.png" alt="Navrachana School, Vadodara"></div>
+              		<p class="fullname">Navrachana School, Vadodara</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/cambridge-school-jaipur.png" alt="Cambridge Court High School, Jaipur"></div>
+              		<p class="fullname">Cambridge Court High School, Jaipur</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/st-xaviers-ranchi.png" alt="St. Xavier's School, Doranda, Ranchi"></div>
+              		<p class="fullname">St. Xavier's School, Doranda, Ranchi</p>            	
+            
+              
+            </div>
+
+          </li>
+             
+          <li>   
+            <div class="support_cont">
+            	<div class="img-box"><img src="http://media2.intoday.in/indiatoday/resources/newswiz/team/school-logo/2017/logo/dps-srinagar.png" alt="Delhi Public School, Srinagar"></div>
+              		<p class="fullname">Delhi Public School, Srinagar</p>            	
+            
+              
+            </div>
+
+          </li>
+ 
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+</div>
+</div>
+</div>
+
+
+<script src="http://media2.intoday.in/indiatoday/resources/newswiz/newjs/bootstrap.min.js"></script> 
+
+<!-- Swiper JS --> 
+<script src="http://media2.intoday.in/indiatoday/resources/newswiz/newjs/swiper.min.js"></script> 
+<script type="text/javascript" src="http://media2.intoday.in/indiatoday/resources/newswiz/newjs/custom.js"></script> 
+
+    <script src="http://dotctor.github.io/jQuery.msgBox/scripts/jquery.msgBox.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+	$(document).ready(function(){
+	$('.vote-btn').on('click', (function(){
+	$(this).css({'pointer-events': 'none', 'opacity': '0.3'});
+	var schoolfullname = $(this).parent().find('p.fullname').text();
+	//alert(schoolfullname);
+	$('h4 span#schoolname').html(schoolfullname);
+	$(this).parent('.support_cont').next('.sup_like_all1').css('display','block');
+	
+	
+	}));
+	$('.suplike-close').click(function(){
+	$('.sup_like_all1').css('display','none');
+	
+	})
+	})
+	
+	</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("select").change(function(){
+            $(this).find("option:selected").each(function(){
+                if($(this).attr("value")=="group-a"){
+                    $(".box").not(".group-a").hide();
+                    $(".group-a").show();
+                }
+                else if($(this).attr("value")=="group-b"){
+                    $(".box").not(".group-b").hide();
+                    $(".group-b").show();
+                }
+                else if($(this).attr("value")=="group-c"){
+                    $(".box").not(".group-c").hide();
+                    $(".group-c").show();
+                }
+                else{
+                    $(".box").hide();
+                }
+            });
+        }).change();
+    });
+    </script> 
+   
+<script type="text/javascript">
+$(document).ready(function(e) {
+   var n_support_slider_width = $('.support-team .support-slider').width();	
+	var nlength = $('ul.sld_sup li').length;
+	var nwidth = $('ul.sld_sup li').width();	
+	var ntotwidth=nlength*nwidth;
+	var n_ul_width = $('ul.sld_sup');
+	var presupport = $('#presupport');
+	var nextsupport = $('#nextsupport');
+    //var ndevice_width = deviceWidth_sld(n_support_slider_width,nwidth);
+    var count_len,count_len1;
+    var ndevice_width;
+    var nwindow_wdth = $(window).width();
+    if(nwindow_wdth>800){
+   // count_len1 = Math.floor(n_support_slider_width/nwidth);
+
+    count_len = Math.ceil(ntotwidth/n_support_slider_width);
+     console.log(count_len);
+    ndevice_width = count_len*nwidth;
+    }
+    else
+    {
+    count_len = nlength-1;	
+    ndevice_width = nwidth;
+    }
+    console.log(count_len + " - " + ndevice_width);
+	var ncounter=1;
+	n_ul_width.css('width',ntotwidth);
+
+
+	nextsupport.click(function(){
+
+    if(ncounter<=count_len){
+    	n_ul_width.animate({
+    		left:'-='+ndevice_width
+    	})
+    	ncounter++;
+    	presupport.css('opacity', '1');
+    }
+    else
+    {
+    	nextsupport.css('opacity', '0.5');
+
+    }
+
+	})
+
+
+presupport.click(function(){
+
+    if(ncounter==1){
+    	
+    	presupport.css('opacity', '0.5');
+    }
+    else
+    {
+    	n_ul_width.animate({
+    		left:'+='+ndevice_width
+    	})
+    	ncounter--; 
+
+    	nextsupport.css('opacity', '1');
+
+    }
+
+	})
+
+	
+});
+    </script> 
+<script type="text/javascript">
+  function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ')
+                c = c.substring(1);
+            if (c.indexOf(name) == 0)
+                return c.substring(name.length, c.length);
+        }
+        return "";
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + "; " + expires;
+		//console.log("setcookie");
+    }
+
+</script>
+
+

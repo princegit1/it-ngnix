@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>gggg</title>
+</head>
+<body>
+
+ <style>
+    .box{width:200px;height:300px;border:1px solid #ccc;background: #f1f1f1;}
+.loading-icon{width:50px;height:50px;position: absolute;top:50%;left:50%;z-index:99;/margin:-20px 0 0 -20px;}
+.loading-icon{border-left: 3px solid #d22a2a;border-radius: 100%;
+-webkit-animation: spin 4s linear infinite;-moz-animation: spin 4s linear infinite;animation: spin 1s linear infinite;}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+  </style>
+<span class="loading-icon"></span>
+ <div class="box"> </div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$('.box').on("touchstart", function(event){
+ var xClick = event.originalEvent.touches[0].pageX;
+ $(this).one("touchmove", function(event){
+ var xMove = event.originalEvent.touches[0].pageX;
+ if( Math.floor(xClick - xMove) > 5 ){
+
+ console.log("Next ");
+
+ setTimeOut(function(){
+ window.location.href="http://localhost:71/atswipe/storymain.html";	
+ },2000);
+ 
+
+ }
+ else if( Math.floor(xClick - xMove) < -5 ){
+ console.log("Previous" );
+ window.location.href="http://localhost:71/atswipe/story_prev.html";
+ }
+
+
+ })
+
+ })
+
+
+
+ </script>
+</body>
+</html>

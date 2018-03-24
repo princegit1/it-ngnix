@@ -1,0 +1,46 @@
+<svg height="100%" preserveaspectratio="xMidYMid meet" version="1.1" viewbox="0 0 360.000000 185.000000" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+    <g>
+        <text fill="#545454" id="text-gujarat" style="font-size:25px;font-weight:bold;text-align:center;text-anchor:middle;" x="175" y="175">
+            182
+        </text>
+        <g id="Party1" style="fill:#CCCCCC">
+           <circle cx="12.24" cy="174.29" id="p1" r="5.71">
+            </circle>
+            <circle cx="26.53" cy="174.29" id="p2" r="5.71">
+            </circle>
+            <circle cx="40.83" cy="174.29" id="p3" r="5.71">
+            </circle>
+            <circle cx="55.13" cy="174.29" id="p4" r="5.71">
+            </circle>
+            <circle cx="69.43" cy="174.29" id="p5" r="5.71">
+            </circle>
+            <circle cx="83.74" cy="174.29" id="p6" r="5.71">
+            </circle>
+            <circle cx="98.06" cy="174.29" id="p7" r="5.71">
+            </circle>
+            <circle cx="13.44" cy="159.17" id="p8" r="5.71">
+            </circle>
+            <circle cx="27.85" cy="159.16" id="p9" r="5.71">
+            </circle>
+            <circle cx="42.28" cy="159.15" id="p10" r="5.71">
+            </circle>
+            <circle cx="56.75" cy="159.13" id="p11" r="5.71">
+            </circle>
+            <circle cx="71.27" cy="159.12" id="p12" r="5.71">
+            </circle>
+            <circle cx="85.86" cy="159.11" id="p13" r="5.71">
+            </circle>
+            <circle cx="100.56" cy="159.11" id="p14" r="5.71">
+            </circle>
+            <circle cx="16.00" cy="144.22" id="p15" r="5.71">
+            </circle>
+            <circle cx="30.65" cy="144.23" id="p16" r="5.71">
+            </circle>
+            <circle cx="45.38" cy="144.25" id="p17" r="5.71">
+            </circle>
+            <circle cx="60.21" cy="144.29" id="p18" r="5.71">
+            </circle>
+            
+        </g>
+    </g>
+</svg>

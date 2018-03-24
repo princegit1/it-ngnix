@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<title>Map</title>
+<script src="js/ammap.js"></script>       
+<script src="js/guj_map.js"></script>   
+<script src="js/light.js"></script>     
+<style>
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  
+}
+
+
+#chartdiv {
+  width: 100%;
+  height: 100%;
+}
+
+.ammapDescriptionWindow {
+  background-color: #fff;
+  box-shadow:0 0 5px #333;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: Verdana;
+  font-size: 10px;
+  opacity: 0.95;
+  overflow: auto;
+} 
+
+.ammapDescriptionTitle {
+  font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+<div id="chartdiv"></div>
+<script>
+
+
+var map = AmCharts.makeChart("chartdiv", {
+  "type": "map",
+  "theme": "light",
+  "dataProvider": {
+    "map": "mapguj",
+    "areas": [
+{"id":"06008","title":"THARAD","description":"description0"},{"id":"06007","title":"VAV","description":"description1"},{"id":"06009","title":"DHANERA","description":"description2"},{"id":"06010","title":"DANTA (ST)","description":"description3"},{"id":"06014","title":"DEODAR","description":"description4"},{"id":"06013","title":"DEESA","description":"description5"},{"id":"06029","title":"KHEDBRAHMA(ST)","description":"description6"},{"id":"06012","title":"PALANPUR","description":"description7"},{"id":"06011","title":"VADGAM (SC)","description":"description8"},{"id":"06015","title":"KANKREJ","description":"description9"},{"id":"06003","title":"BHUJ","description":"description10"},{"id":"06019","title":"SIDHAPUR","description":"description11"},{"id":"06001","title":"ABDASA","description":"description12"},{"id":"06018","title":"PATAN CONSTITUENCY","description":"description13"},{"id":"06016","title":"RADHANPUR","description":"description14"},{"id":"06020","title":"KHERALU","description":"description15"},{"id":"06006","title":"RAPAR","description":"description16"},{"id":"06028","title":"IDAR (SC)","description":"description17"},{"id":"06017","title":"CHANASMA","description":"description18"},{"id":"06021","title":"UNJHA","description":"description19"},{"id":"06030","title":"BHILODA (ST)","description":"description20"},{"id":"06022","title":"VISNAGAR","description":"description21"},{"id":"06026","title":"VIJAPUR","description":"description22"},{"id":"06023","title":"BECHRAJI","description":"description23"},{"id":"06027","title":"HIMATNAGAR","description":"description24"},{"id":"06005","title":"GANDHIDHAM (SC)","description":"description25"},{"id":"06025","title":"MEHSANA","description":"description26"},{"id":"06004","title":"ANJAR","description":"description27"},{"id":"06031","title":"MODASA","description":"description28"},{"id":"06060","title":"DASADA (SC)","description":"description29"},{"id":"06037","title":"MANSA","description":"description30"},{"id":"06039","title":"VIRAMGAM","description":"description31"},{"id":"06033","title":"PRANTIJ","description":"description32"},{"id":"06032","title":"BAYAD","description":"description33"},{"id":"06024","title":"KADI (SC)","description":"description34"},{"id":"06002","title":"MANDVI L.A.C.","description":"description35"},{"id":"06122","title":"LUNAWADA","description":"description36"},{"id":"06123","title":"SANTRAMPUR","description":"description37"},{"id":"06035","title":"GANDHINAGAR(SOUTH)","description":"description38"},{"id":"06038","title":"KALOL","description":"description39"},{"id":"06036","title":"GANDHINAGAR (NORTH)","description":"description40"},{"id":"06064","title":"DHRANGADHRA","description":"description41"},{"id":"06034","title":"DEHGAM","description":"description42"},{"id":"06065","title":"MORBI","description":"description43"},{"id":"06129","title":"FETEPURA(ST)","description":"description44"},{"id":"06121","title":"BALASINOR","description":"description45"},{"id":"06120","title":"KAPADWANJ","description":"description46"},{"id":"06040","title":"SANAND","description":"description47"},{"id":"06125","title":"MORVA","description":"description48"},{"id":"06057","title":"DASKROI","description":"description49"},{"id":"06130","title":"JHALOD (ST)","description":"description50"},{"id":"06066","title":"TANKARA","description":"description51"},{"id":"06076","title":"KALAVAD(SC)","description":"description52"},{"id":"06077","title":"JAMNAGAR (RURAL)","description":"description53"},{"id":"06124","title":"SHEHRA","description":"description54"},{"id":"06131","title":"LIMKHEDA (ST)","description":"description55"},{"id":"06063","title":"CHOTILA","description":"description56"},{"id":"06117","title":"MAHEMADABAD","description":"description57"},{"id":"06119","title":"THASRA","description":"description58"},{"id":"06062","title":"WADHWAN","description":"description59"},{"id":"06067","title":"WANKANER","description":"description60"},{"id":"06058","title":"DHOLKA","description":"description61"},{"id":"06132","title":"DAHOD(ST)","description":"description62"},{"id":"06118","title":"MAHUDHA","description":"description63"},{"id":"06126","title":"GODHRA","description":"description64"},{"id":"06115","title":"MATAR","description":"description65"},{"id":"06134","title":"DEVGADH BARIA","description":"description66"},{"id":"06135","title":"SAVLI","description":"description67"},{"id":"06061","title":"LIMBDI","description":"description68"},{"id":"06082","title":"DWARKA","description":"description69"},{"id":"06133","title":"GARBADA (ST)","description":"description70"},{"id":"06111","title":"UMRETH","description":"description71"},{"id":"06116","title":"NADIAD","description":"description72"},{"id":"06127","title":"KALOL","description":"description73"},{"id":"06081","title":"KHAMBHALIA","description":"description74"},{"id":"06114","title":"SOJITRA","description":"description75"},{"id":"06080","title":"JAMJODHPUR","description":"description76"},{"id":"06113","title":"PETLAD","description":"description77"},{"id":"06059","title":"DHANDHUKA","description":"description78"},{"id":"06112","title":"ANAND","description":"description79"},{"id":"06110","title":"ANKLAV","description":"description80"},{"id":"06128","title":"HALOL","description":"description81"},{"id":"06108","title":"KHAMBAT","description":"description82"},{"id":"06137","title":"CHHOTAUDAIPUR (ST)","description":"description83"},{"id":"06071","title":"RAJKOT RURAL (SC)","description":"description84"},{"id":"06136","title":"VAGHODIA","description":"description85"},{"id":"06109","title":"BORSAD","description":"description86"},{"id":"06107","title":"BOTAD","description":"description87"},{"id":"06072","title":"JASDAN","description":"description88"},{"id":"06139","title":"SANKHEDA (ST)","description":"description89"},{"id":"06146","title":"PADRA","description":"description90"},{"id":"06138","title":"JETPUR (ST)","description":"description91"},{"id":"06140","title":"DABHOI","description":"description92"},{"id":"06073","title":"GONDAL","description":"description93"},{"id":"06150","title":"JAMBUSAR","description":"description94"},{"id":"06074","title":"JETPUR","description":"description95"},{"id":"06083","title":"PORBANDAR","description":"description96"},{"id":"06106","title":"GADHADA (SC)","description":"description97"},{"id":"06075","title":"DHORAJI","description":"description98"},{"id":"06103","title":"BHAVNAGAR (RURAL)","description":"description99"},{"id":"06147","title":"KARJAN","description":"description100"},{"id":"06096","title":"LATHI","description":"description101"},{"id":"06084","title":"KUTIYANA","description":"description102"},{"id":"06148","title":"NANDOD (ST)","description":"description103"},{"id":"06095","title":"AMRELI","description":"description104"},{"id":"06152","title":"JHAGADIA (ST)","description":"description105"},{"id":"06085","title":"MANAVADAR","description":"description106"},{"id":"06105","title":"BHAVNAGAR  WEST","description":"description107"},{"id":"06104","title":"BHAVNAGAR ( EAST )","description":"description108"},{"id":"06102","title":"PALITANA","description":"description109"},{"id":"06086","title":"JUNAGADH","description":"description110"},{"id":"06087","title":"VISAVADAR","description":"description111"},{"id":"06101","title":"GARIYADHAR","description":"description112"},{"id":"06153","title":"BHARUCH","description":"description113"},{"id":"06094","title":"DHARI","description":"description114"},{"id":"06097","title":"SAVARKUNDLA","description":"description115"},{"id":"06149","title":"DEDIAPADA (ST)","description":"description116"},{"id":"06154","title":"ANKLESHWAR","description":"description117"},{"id":"06088","title":"KESHOD","description":"description118"},{"id":"06100","title":"TALAJA","description":"description119"},{"id":"06156","title":"MANGROL(ST)","description":"description120"},{"id":"06172","title":"NIZAR (ST)","description":"description121"},{"id":"06091","title":"TALALA","description":"description122"},{"id":"06155","title":"OLPAD","description":"description123"},{"id":"06157","title":"MANDVI (ST)","description":"description124"},{"id":"06089","title":"MANGROL","description":"description125"},{"id":"06158","title":"KAMREJ","description":"description126"},{"id":"06093","title":"UNA","description":"description127"},{"id":"06099","title":"MAHUVA","description":"description128"},{"id":"06098","title":"RAJULA","description":"description129"},{"id":"06171","title":"VYARA(ST)","description":"description130"},{"id":"06090","title":"SOMNATH","description":"description131"},{"id":"06170","title":"MAHUVA (ST)","description":"description132"},{"id":"06169","title":"BARDOLI (SC)","description":"description133"},{"id":"06168","title":"CHORYASI","description":"description134"},{"id":"06092","title":"KODINAR (SC)","description":"description135"},{"id":"06174","title":"JALALPORE","description":"description136"},{"id":"06175","title":"NAVSARI","description":"description137"},{"id":"06173","title":"DANG  (ST)","description":"description138"},{"id":"06176","title":"GANDEVI (ST)","description":"description139"},{"id":"06177","title":"VANSDA (ST)","description":"description140"},{"id":"06179","title":"VALSAD","description":"description141"},{"id":"06178","title":"DHARAMPUR (ST)","description":"description142"},{"id":"06180","title":"PARDI","description":"description143"},{"id":"06181","title":"KAPRADA (ST)","description":"description144"},{"id":"06182","title":"UMBERGAON (ST)","description":"description145"},{"id":"06167","title":"SURAT WEST","description":"description146"},{"id":"06166","title":"KATARGAM","description":"description147"},{"id":"06161","title":"VARACHHA ROAD","description":"description148"},{"id":"06160","title":"SURAT NORTH","description":"description149"},{"id":"06162","title":"KARANJ","description":"description150"},{"id":"06163","title":"LIMBAYAT","description":"description151"},{"id":"06164","title":"UDHNA","description":"description152"},{"id":"06165","title":"MAJURA","description":"description153"},{"id":"06159","title":"SURAT EAST","description":"description154"},{"id":"06141","title":"VADODARA CITY (SC)","description":"description155"},{"id":"06142","title":"SAYAJIGUNJ","description":"description156"},{"id":"06144","title":"RAOPURA","description":"description157"},{"id":"06143","title":"AKOTA","description":"description158"},{"id":"06145","title":"MANJALPUR","description":"description159"},{"id":"06041","title":"GHATLODIA","description":"description160"},{"id":"06042","title":"VEJALPUR","description":"description161"},{"id":"06055","title":"SABARMATI","description":"description162"},{"id":"06045","title":"NARANPURA","description":"description163"},{"id":"06044","title":"EILLISBRIDGE","description":"description164"},{"id":"06054","title":"DANILIMDA (SC)","description":"description165"},{"id":"06078","title":"JAMNAGAR NORTH","description":"description166"},{"id":"06079","title":"JAMNAGAR (SOUTH)","description":"description167"},{"id":"06068","title":"RAJKOT  (EAST)","description":"description168"},{"id":"06070","title":"RAJKOT SOUTH","description":"description169"},{"id":"06069","title":"RAJKOT (WEST)","description":"description170"},{"id":"06050","title":"AMRAIWADI","description":"description171"},{"id":"06043","title":"VATVA","description":"description172"},{"id":"06046","title":"NIKOL","description":"description173"},{"id":"06049","title":"BAPUNAGAR","description":"description174"},{"id":"06051","title":"DARIAPUR","description":"description175"},{"id":"06052","title":"JAMALPUR-KHADIA","description":"description176"},{"id":"06056","title":"ASARWA (SC)","description":"description177"},{"id":"06047","title":"NORODA","description":"description178"},{"id":"06048","title":"THAKKARBAPANAGAR","description":"description179"},{"id":"06053","title":"MANINAGAR","description":"description180"},{"id":"06151","title":"VAGRA","description":"description181"}
+	] 
+  },
+  "smallMap": {
+   "backgroundAlpha": 0.4
+         },
+  "zoomduration":0.1,
+  "areasSettings": {
+    "bringForwardOnHover":true, 
+    "autoZoom": true,
+    "color": "#1A5FFF",
+    "rollOverColor": "#00298B",
+    "descriptionWindowY": 20,
+    "descriptionWindowX": 550,
+    "descriptionWindowWidth": 300,
+    "descriptionWindowHeight": 330
+  }
+});
+</script>
+
+
+
+</body>
+</html>
+
+

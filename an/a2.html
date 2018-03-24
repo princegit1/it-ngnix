@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ang</title>
+	<script src="angular.min.js"></script>
+</head>
+<body>
+	<div class="mn" ng-app="app1">
+		<div class="contr" ng-controller="ctrl1">
+
+
+			<button id="btn" >Click</button>
+			
+<abc></abc>
+		</div>
+
+
+	</div>
+
+
+
+	<script type="text/javascript">
+angular.module('app1', []).controller('ctrl1',function($scope){
+	$scope.nme= {'name':'asdasd','id':'123'};
+})
+.directive('abc', function(){
+	// Runs during compile
+	return {
+		// name: '',
+		// priority: 1,
+		// terminal: true,
+		// scope: {}, // {} = isolate, true = child, false/undefined = no change
+		// controller: function($scope, $element, $attrs, $transclude) {},
+		// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
+		// restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
+		 template: 'Name: {{nme.name}}, ID: {{nme.id}}',
+		// templateUrl: '',
+		// replace: true,
+		// transclude: true,
+		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
+		//link: function($scope, iElm, iAttrs, controller) {
+			
+		//}
+	};
+});
+
+	</script>
+</body>
+</html>

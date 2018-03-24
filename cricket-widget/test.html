@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app1">
+<head>
+	<meta charset="UTF-8">
+	<title>Scorecard</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+
+	 <script src="https://smedia2.intoday.in/indiatoday_wap/1.1/resources/js/angular.min.js" type="text/javascript"></script>
+<style>
+*,pre,body,html{padding:0;margin:0;}
+body{ font-family: "Roboto"; }
+span.team{float:left; width:100px;margin-right: 5px;}
+span{width: 100px;float:left; text-align: center;}
+.team img{width:40%; margin:0 auto;}
+</style>
+</head>
+<body ng-controller="ctrl"> 
+
+<ul>
+<li ng-repeat="e in match | limitTo:2" ng-if="(e.live=='1' || e.recent=='yes') && e.priority=='1'" >
+<span class="team teamA">
+	  <img ng-src="https://smedia2.intoday.in/indiatoday_wap/1.1/resources/images/flag_img_b/{{e.teama_Id}}.png" alt="" /><br>
+	{{e.teama_short}}<br>
+	{{e.inn_score_1}}
+
+</span>	
+<span>VS<br><!-- {{e.current_score}} --></span>
+<span class="team teamB">
+	  <img ng-src="https://smedia2.intoday.in/indiatoday_wap/1.1/resources/images/flag_img_b/{{e.teamb_Id}}.png" alt="" /><br>
+	{{e.teamb_short}}<br>
+{{e.inn_score_2}}
+</span>	
+
+</li>
+</ul>
+
+
+
+
+<script type="text/javascript">
+	
+var app1 = angular.module('app1', []);
+app1.controller('ctrl', ['$scope','$http','$interval', function(s,h,i){
+	s.one = 'ASDASD ASD';
+	s.fun1 = function(text){
+		return text;
+	}        
+
+	s.jsonUrl = 'live_match.json';  
+	s.getfun = function(){
+		h.get(s.jsonUrl).then(function(response){
+			s.match = response.data.calendar.match;
+		
+		})
+	}
+
+	s.getfun();
+		i(function(){
+    	s.getfun();
+   			 },6000);
+	
+}])
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+.clearfix{ clear: both; }     
+.election_map_container{width: 98%;  font-family: 'Roboto', sans-serif; margin: 0 auto; position: relative; background: #fff; box-shadow:0 0 4px #ccc;}	
+.map_container{width:100%; float:left;overflow-y: hidden;overflow-x:hidden; height: 600px; position: relative;background: #fff; box-shadow:0 0 8px 1px #ccc;}
+.left_align_candidates{width: 30%;background: #fff; height: 100%;box-shadow: 0 0px 20px 0px #ccc; float: left }
+.left_align_candidates .top_part {padding: 20px 22px;box-sizing: border-box;background: #000;text-align: center;position: relative}
+#close_t{ display: none; position: absolute;top: 31px; right: 30px; cursor: pointer;}
+.left_align_candidates .top_part input[type="text"],.left_align_candidates .top_part input[type="search"]{border:1px solid #ccc; background: #fff; padding: 10px;box-sizing:border-box;width:100%;font-weight: bold;font-size: 15px;}
+.left_align_candidates .top_part input[type="text"]:focus,.left_align_candidates .top_part input[type="search"]:focus{border:1px solid #ccc;}
+.left_align_candidates .bottom_part{padding:20px;width:100%;box-sizing: border-box;max-height: 520px; min-height: 100px;float: left; position: relative;}    
+.overflow_scroll{overflow-y: scroll; }     
+.left_align_candidates .bottom_part .candidate_row{width:100%; float:left; padding-bottom: 10px; border-bottom: 1px solid #ccc; margin-bottom: 10px;} 
+.left_align_candidates .bottom_part .candidate_row .left_part_cn{ width: 70%; float:left; }
+.left_align_candidates .bottom_part .candidate_row .left_part_cn .candidate_image{width:50px; height: 50px;margin-right: 8px; float: left; border-radius:50%; background: #ccc}
+.left_align_candidates .bottom_part .candidate_row .left_part_cn .candidate_desc{width:auto; margin-top: 8px; overflow: hidden;display: block;}
+.left_align_candidates .bottom_part .candidate_row .left_part_cn .candidate_desc h3{margin:0;padding:0; font-size: 13px; line-height:16px;color: #000; font-weight: 600;}      
+.left_align_candidates .bottom_part .candidate_row .left_part_cn .candidate_desc h4{margin:0;padding:0; font-size: 11px;line-height:15px; color: #6b6969;}
+.left_align_candidates .bottom_part .candidate_row .right_part_cn { width: 30%; float:right; margin-top: 11px; text-align: right;display: table;}
+.left_align_candidates .bottom_part .candidate_row .right_part_cn span{display: table-cell;vertical-align: middle;}  
+.left_align_candidates .bottom_part .candidate_row .right_part_cn span.share_icon_t{display:none;}        
+.left_align_candidates .bottom_part .candidate_row .right_part_cn .win_lose{  margin-right:10px; font-size: 11px; text-align:center;font-weight: bold; text-transform: uppercase; }   
+.left_align_candidates .bottom_part .candidate_row .right_part_cn .win_lose.won,.left_align_candidates .bottom_part .candidate_row .right_part_cn .win_lose.WON{ color:#0c0; }
+.left_align_candidates .bottom_part .candidate_row .right_part_cn .win_lose.loss,.left_align_candidates .bottom_part .candidate_row .right_part_cn .win_lose.LOST{color:#C00; }
+.left_align_candidates .bottom_part .candidate_row .right_part_cn .share_icon_t a{ background:url(../images/share-outline.png); background-position: 0 0; background-size: 100% 100%;width: 16px; height:16px; display: inline-block; position: relative;top: 2px }  
+.loader_data_image{width:90%;float: left; height: 100%; position: absolute; top:10px;}       
+.loader_data_image .loader_image{ position: absolute;top: 50%;left:50%; transform: translate(-50%,-50%); }    
+
+#chartdiv {width:70%; height: 100%; float:right;}   
+.ammapDescriptionWindow {background-color: #fff; box-shadow:0 0 5px #333;padding: 10px;border-radius: 5px;font-family: Verdana;font-size: 10px;opacity: 0.95;overflow: auto;} 
+.ammapDescriptionTitle {font-weight: bold;font-size: 12px;margin-bottom: 10px;}
+.ui-widget-content{  max-height: 300px !important; overflow-x: hidden !important; }           
+.loader_image_main{width:50px; height: 50px;position: absolute;z-index: 9999; top: 50%;left:50%; transform: translate(-50%,-50%); display: none;}
+.cWON,.cwon { background: #f2f2f2;border: 1px solid #ccc; padding:5px;box-sizing: border-box;  }              
+.left_align_candidates .bottom_part .candidate_row .right_part_cn .win_lose.WON,.left_align_candidates .bottom_part .candidate_row .right_part_cn .win_lose.won {font-size: 13px;color: #fff;padding: 9px 7px;border-radius: 10px;background: #0c0;}   
+@media screen and (max-width:800px)   
+{
+    .map_container{box-shadow: 0 0 0 0 #fff; -webkit-box-shadow: 0 0 0 0 #fff;  }
+    .map_container{height: 535px;}
+	.election_map_container{width:100%;}
+	.left_align_candidates .bottom_part .candidate_row .left_part_cn .candidate_desc h3{ font-size: 13px; }
+	.left_align_candidates .bottom_part{ padding: 10px; }
+	.left_align_candidates .bottom_part .candidate_row .right_part_cn .win_lose{ margin-right: 5px; }
+	.left_align_candidates .bottom_part .candidate_row .left_part_cn .candidate_desc{ margin-top:0px; }
+	.left_align_candidates .bottom_part .candidate_row .left_part_cn .candidate_image{width:40px; height: 40px;}
+}     
+
+     
+@media screen and (max-width:767px)
+{
+.left_align_candidates{ position: relative; width:100%; height:auto; float:none;}
+.left_align_candidates .bottom_part {padding:0px 10px;}
+#chartdiv{ width:100%; float: none;}
+.map_container{ overflow-y: scroll; }   
+
+}     
+

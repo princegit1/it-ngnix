@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app1">
+<head>
+	<meta charset="UTF-8">
+	<title>Scorecard</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+
+	 <script src="https://smedia2.intoday.in/indiatoday_wap/1.1/resources/js/angular.min.js" type="text/javascript"></script>
+<style>
+*,pre,body,html{padding:0;margin:0;}
+body{ font-family: "Roboto"; }
+span.team{float:left; width:100px;margin-right: 5px;}
+span{width: 100px;float:left; text-align: center;}
+.team img{width:40%; margin:0 auto;}
+</style>
+</head>
+<body > 
+
+<div ng-controller="ctrl">
+<!-- {{msg}} -->
+
+<form name="mf">
+
+<input type="text" name="md" ng-model="data-md">
+<div ng-show="mf.md.$dirty">
+modifying...
+	</div>
+</form>	
+
+--------------<br>
+<input type="text" ng-model="mdl1" value="">
+{{mdl1}}
+</div>	
+<div ng-controller="ctrl2">
+
+</div>
+<script type="text/javascript">
+	
+var app1 = angular.module('app1', []);
+
+app1.provider('mProvider',function(){
+	console.log("Provider");
+	this.$get = function(){
+		return "my Var";
+	}
+})
+ 
+function pObj(){
+this.getValue = function (){
+	return "AA DD";
+}
+}
+
+app1.factory('mfact',function(){
+	 console.log("Factory function called.");
+	return new pObj();
+})
+app1.service('mserv',function(){
+	 console.log("service function called.");
+	this.getValue = function (){
+	return "sss AA DD";
+}
+})
+
+app1.controller('ctrl',function($scope,mProvider,mserv,$timeout){
+$scope.$watch('mdl1',function(n,o){
+console.log( " --> old: " + o + " --> n: " + n );
+});
+
+console.log(" --> " + mserv.getValue());
+$scope.msg = " T 11 ";
+$timeout(function(){
+	$scope.$apply(function(){
+	$scope.msg = " 55555555 ";
+	});
+
+},1000);
+})
+
+app1.controller('ctrl2',function($scope,mProvider,mfact){
+console.log(" --> " + mProvider);
+})
+</script>
+</body>
+</html>

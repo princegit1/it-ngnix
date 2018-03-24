@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>b</title>
+		<script src="angular.min.js"></script>
+<style>
+.slider_t {width:300px;margin-bottom: 10px;}
+.slider_t ul{position: relative; list-style-type: none;padding: 0;margin:0;  }
+.slider_t ul li{width:300px;float: left;} 
+.slider_t ul li .box_cont{width:100%;}
+.slider_t ul li .box_cont .imgc{width:100%;}
+.slider_t ul li .box_cont .imgc img{width:100%;}
+.slider_t ul li .box_cont .titc{width:100%;padding:10px;box-sizing: border-box;background: #f1f1f1;}
+
+</style>
+</head>
+<body ng-app="app1">
+	
+<div class="wrapper_container" ng-controller="ctrl1">
+
+
+
+<div class="slider_t">
+
+<ul class="ulslid"> 
+<li>
+	<div class="box_cont">
+		<div class="imgc"><img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201801/trump_reuters-483x271.jpeg?Xr7cVnSPwx7lKBqvGc8mckjZ3rtFgeDJ" alt="" /></div>
+		<div class="titc">
+			test test1
+		</div>
+	</div>
+
+</li>
+
+</ul>
+
+<button class="prev" ng-click="prev()">Prev</button>
+<button class="next" ng-click="next()">Next</button>
+
+</div>
+
+{{data1}}
+</div>
+</body>
+
+<script>
+/*var liw,lih,lin,tot_ulwidth,ul;
+var counter=1;
+liw = document.getElementsByClassName('ulslid')[0].children[0].clientWidth;
+lih = document.getElementsByClassName('ulslid')[0].children[0].clientHeight;
+lin = document.getElementsByClassName('ulslid')[0].children.length;
+tot_ulwidth = liw*lin;
+document.getElementsByClassName('ulslid')[0].style.width = tot_ulwidth+"px";
+ul = document.getElementsByClassName('ulslid')[0];
+document.getElementsByClassName('next')[0].addEventListener("click",next);
+document.getElementsByClassName('prev')[0].addEventListener("click",prev);
+ 
+function next(){
+	if(counter<lin){
+
+	ul.style.left = -(liw*counter)+"px";
+	
+	console.log("n counter.." + counter);
+	counter++;
+	}
+	else
+	{ 
+   
+	}
+}
+function prev(){
+	if(counter==0){
+
+	
+	}
+	else
+	{    
+	counter--;
+	ul.style.left = -(liw*counter)+"px";
+	
+    console.log("p counter.." + counter);
+	
+	}
+}*/
+var app1 = angular.module('app1', []);
+app1.controller('ctrl1',function($scope,$http){
+$scope.t = "TTTTTTT 66";
+
+var liw,lih,lin,tot_ulwidth,ul;
+var counter=1;
+liw = document.getElementsByClassName('ulslid')[0].children[0].clientWidth;
+lih = document.getElementsByClassName('ulslid')[0].children[0].clientHeight;
+lin = document.getElementsByClassName('ulslid')[0].children.length;
+tot_ulwidth = liw*lin;
+document.getElementsByClassName('ulslid')[0].style.width = tot_ulwidth+"px";
+ul = document.getElementsByClassName('ulslid')[0];
+
+$scope.next = function(){
+	if(counter<lin){
+
+	ul.style.left = -(liw*counter)+"px";
+	
+	console.log("n counter.." + counter);
+	counter++;
+	}
+	else
+	{ 
+   
+	}
+}
+$scope.prev = function(){
+	if(counter==0){
+
+	
+	}
+	else
+	{    
+	counter--;
+	ul.style.left = -(liw*counter)+"px";
+	
+    console.log("p counter.." + counter);
+	
+	}
+}
+$http.get('http://localhost:8080/JWebS2/rest/data1/json').then(function(response){
+	$scope.data1 = response.data; 
+})
+})
+</script>
+
+</html>

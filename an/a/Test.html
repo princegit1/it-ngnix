@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ang</title>
+	<script src="../angular.min.js"></script>
+	<script src="../angular-route.min.js"></script>
+</head>
+<body>
+
+<div class="content" ng-app="app11" ng-init="tt=true">
+	<div ng-controller='ctrl1'>
+<button class="btn1" ng-click="fun()">H/S</button>
+<div class="ift">
+	<ul ng-hide="tt">
+	<li ng-repeat="aa in o1">
+     <ul>
+      <li ng-repeat="a in aa">
+      	{{a}}
+      </li>
+     </ul>
+	</li>
+	</ul>
+	
+</div>
+</div>
+
+<div class="" ng-controller='ctrl2'>
+
+	<button ng-click="loadHtml()">Load Data</button>
+	<div id="innCont" ng-if="gt"></div>
+
+	 {{t2}}  
+
+	{{a11}}  
+	</div>   
+	
+
+<div ng-view></div>
+</div>
+	<script>
+/*var app1 = angular.module('app11', ["ngRoute"])
+app1.controller('ctrl1',['$scope',  function($scope){
+	$scope.a1 = [1,2,3,4,5,6,7];
+	$scope.o1 = [{'a1':'aaabc','a2':'aaff2','a3':'aag4','a4':'aah6'},{'a1':'aaabc11','a2':'aaff21','a3':'aag41','a4':'aah61'}];
+	$scope.fun = function(){
+        console.log("ASDASD");
+        if(this.tt==true){
+       this.tt = false;
+   } else{
+   this.tt=true;
+	}
+}
+}]) 
+
+
+app1.controller('ctrl2',['$scope','$http', function($scope,$http){
+	$scope.t2 = "ASDASDASD 555";
+	$scope.gt = false;
+	$scope.loadHtml = function(){
+		if($scope.gt ==false){	
+	$http.get('a.html').then(function(response){
+	  
+      $scope.a11 = response.data;
+      $scope.rn = Math.floor(Math.random()*9999);
+     
+	})
+}
+ $scope.gt =true;
+	
+ }
+}])
+
+
+app1.config(['$routeProvider',function($routeProvider) {
+	$routeProvider
+	$routeProvider
+	.when("/",{
+		templateUrl: "a.html"
+	})
+	.when("/abc",{
+		templateUrl: "b.html"
+	});
+}])*/
+
+var app1=angular.module("app11",["ngRoute"]);app1.controller("ctrl1",["$scope",function(a){a.a1=[1,2,3,4,5,6,7],a.o1=[{a1:"aaabc",a2:"aaff2",a3:"aag4",a4:"aah6"},{a1:"aaabc11",a2:"aaff21",a3:"aag41",a4:"aah61"}],a.fun=function(){console.log("ASDASD"),1==this.tt?this.tt=!1:this.tt=!0}}]),app1.controller("ctrl2",["$scope","$http",function(a,t){a.t2="ASDASDASD 555",a.gt=!1,a.loadHtml=function(){0==a.gt&&t.get("a.html").then(function(t){a.a11=t.data,a.rn=Math.floor(9999*Math.random())}),a.gt=!0}}]),app1.config(["$routeProvider",function(a){a.when("/",{templateUrl:"a.html"}).when("/abc",{templateUrl:"b.html"})}]);
+	</script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Karnataka</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../assets/css/map.css" />
+<style type="text/css">
+ul#listul{position: absolute;width: 85%;list-style-type: none;background: #fff;padding: 0;box-shadow: 0 0 2px #ccc;margin: 0;text-align: left;z-index: 111; display:none; max-height: 300px; overflow-y: scroll;}
+ul#listul li{ padding:5px 10px;border-bottom: 1px solid #eee; cursor: pointer;}
+.ammapDescriptionWindow.amcharts-description-div{ display: none;}
+</style>
+</head>
+<body>
+<script src="../assets/js/ammap_election.js"></script>         
+<script src="../assets/js/k_map.js"></script>
+<script src="../assets/js/light.js"></script>
+
+<div class="election_map_container">
+<img src="../assets/images/loader.gif" class="loader_image_main" alt="Data is Loading..." />
+<div class="map_container">
+
+<div class="left_align_candidates">
+<div class="top_part">
+<input type="text" name="Search" id="search_candidate" placeholder="Search Constituency ..." onkeyup="autopick_t()"> 
+<span id="close_t">X</span>
+<ul id="listul">
+</ul>
+</div>
+<div class="bottom_part">
+   
+</div>
+</div>
+<div id="chartdiv"></div>
+<div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+</div>
+
+<script src="../assets/js/jquery.min.js"></script>
+
+<script>   
+$.noConflict();
+var map;
+var mapData = [];
+var candidate_data;
+var alld = "";
+
+try{ 
+jQuery(".loader_image_main").show();  
+jQuery.getJSON('../json/provider_json/karnataka-provider.json', function (data) {          
+map = AmCharts.makeChart("chartdiv", {
+  "type": "map",
+  "theme": "light",
+  "images": [
+      {
+        "type": "circle",
+        "label": "Circle Test",
+        "top": 100,
+        "left": 100
+      }
+    ],    
+  "dataProvider": data,
+  "smallMap": {
+   "backgroundAlpha": 0.4
+         },
+  "zoomduration":0.8,
+  "areasSettings": {  
+    "bringForwardOnHover":true, 
+    "autoZoom": true,
+    "color": "#1A5FFF",
+    "rollOverColor": "#00298B",
+    "descriptionWindowY": 20,
+    "descriptionWindowX": 500,
+    "descriptionWindowWidth": 300,
+    "descriptionWindowHeight": 330
+  },
+
+  "zoomControl": {
+    "zoomControlEnabled": true,
+    "bottom":50,
+    "right":10
+  },
+ 
+
+   "listeners": [{
+    "event": "clickMapObject",
+    "method": function(event) {
+      document.getElementById("search_candidate").value =  event.mapObject.title ;
+       document.getElementById("search_candidate").focus();
+       candidate_data(event.mapObject.title); 
+       setTimeout(overflow_ys,1000);
+      
+    }
+  }
+
+  ]
+});
+
+
+
+
+jQuery(".loader_image_main").hide();   
+});
+}catch(e){
+  console.log(e);
+}
+
+
+function search_cn(){  
+var d1v = document.getElementById("search_candidate").value;
+if(d1v!=''){
+document.getElementById("close_t").style.display="block";
+}
+else
+{
+document.getElementById("close_t").style.display="none";  
+}
+
+}
+
+function cleardata(){
+  
+  document.getElementById("search_candidate").value="";
+  jQuery('.bottom_part').html('');
+
+}
+
+document.getElementById("search_candidate").addEventListener("focus", search_cn);
+document.getElementById("search_candidate").addEventListener("blur", search_cn); 
+document.getElementById("close_t").addEventListener("click", cleardata); 
+
+
+
+function clear_ulist(){
+
+  document.getElementById("listul").style.display="none"; 
+}
+function overflow_ys()
+{
+var length_left_sec = jQuery('.bottom_part').children('.candidate_row').length;
+console.log("height_left_sec: " + length_left_sec);  
+if(length_left_sec>=7)  
+{
+jQuery('.bottom_part').addClass('overflow_scroll');
+}
+else   
+{
+jQuery('.bottom_part').removeClass('overflow_scroll');      
+}
+}
+
+var availableTags = [
+"001,Nippani","002,Chikkodi Sadalga","003,Athani","004,Kagwad","005,Kudachi","006,Raibag","007,Hukkeri","008,Arabhavi","009,Gokak","010,Yemkanmardi","011,Belgaum Uttar","012,Belgaum Dakshin","013,Belgaum Rural","014,Khanapur","015,Kittur","016,Bailhongal","017,Saundatti Yellamma","018,Ramdurg","019,Mudhol","020,Terdal","021,Jamkhandi","022,Bilgi","023,Badami","024,Bagalkot","025,Hungund","026,Muddebihal","027,Devar Hippargi","028,Basavana Bagevadi","029,Babaleshwar","030,Bijapur City","031,Nagthan","032,Indi","033,Sindgi","034,Afzalpur","035,Jewargi","036,Shorapur","037,Shahapur","038,Yadgir","039,Gurmitkal","040,Chittapur","041,Sedam","042,Chincholi","043,Gulbarga Rural","044,Gulbarga Dakshin","045,Gulbarga Uttar","046,Aland","047,Basavakalyan","048,Homnabad","049,Bidar","050,Bidar South","051,Bhalki","052,Aurad","053,Raichur","054,Raichur Rural","055,Manvi","056,Devadurga","057,Lingsugur","058,Sindhanur","059,Maski","060,Kushtagi","061,Kanakagiri","062,Gangawati","063,Yelburga","064,Koppal","065,Shirahatti","066,Gadag","067,Ron","068,Nargund","069,Navalgund","070,Kundgol","071,Dharwad","072,Hubli Dharwad East","073,Hubli Dharwad Central","074,Hubli Dharwad West","075,Kalghatgi","076,Haliyal","077,Karwar","078,Kumta","079,Bhatkal","080,Sirsi","081,Yellapur","082,Hangal","083,Shiggaon","084,Haveri","085,Byadgi","086,Hirekerur","087,Ranibennur","088,Hadagalli","089,Hagaribommanahalli","090,Vijayanagara","091,Kampli","092,Siruguppa","093,Bellary City","094,Bellary","095,Sandur","096,Kudligi","097,Molakalmuru","098,Challakere","099,Chitradurga","100,Hiriyur","101,Hosadurga","102,Holalkere","103,Jagalur","104,Harapanahalli","105,Harihar","106,Davanagere North","107,Davanagere South","108,Mayakonda","109,Channagiri","110,Honnali","111,Shimoga","112,Bhadravati","113,Shimoga Rural","114,Tirthahalli","115,Shikaripura","116,Sorab","117,Sagar","118,Byndoor","119,Kundapura","120,Udupi","121,Kapu","122,Karkal","123,Sringeri","124,Mudigere","125,Chikmagalur","126,Tarikere","127,Kadur","128_2_,Chikkanayakanahalli","129,Tiptur","130,Turuvekere","131,Kunigal","132,Tumkur City","133,Tumkur Rural","134,Koratagere","135,Gubbi","136,Sira","137,Pavagada","138,Madhugiri","139,Gauribidanur","140,Bagepalli","141,Chikkaballapur","142,Sidlaghatta","143,Chintamani","144,Srinivaspur","145,Mulbagal","146,Kolar","147,Bangarapet","148,Kolar Gold Field","149,Malur","150,Yelahanka","151,K.r. Pura","152,Byatarayanapura","153,Yeshvanthapura","154,Rajarajeshwarinagar","155,Dasarahalli","156,Mahalakshmi Layout","157,Malleshwaram","158,Hebbal","159,Pulakeshinagar","160,Sarvagnanagar","161,C.v Raman Nagar","162,Shivajinagar","163,Shanti Nagar","164,Gandhi Nagar","165,Rajaji Nagar","166,Govindraj Nagar","167,Vijay Nagar","168,Chamrajpet","169,Chickpet","170,Basavanagudi","171,Padmanaba Nagar","172,B. T. M Layout","173,Jayanagar","174,Mahadevapura","175,Bommanahalli","176,Bangalore South","177,Anekal","178,Hosakote","179,Devanahalli","180,Doddaballapur","181,Nelamangala","182,Magadi","183,Ramanagaram","184,Kanakapura","185,Channapatna","186,Malavalli","187,Maddur","188,Melukote","189,Mandya","190,Srirangapatna","191,Nagamangala","192,Krishnarajpet","193,Shravanabelagola","194,Arsikere","195,Belur","196,Hassan","197,Holenarasipur","198,Arkalgud","199,Sakleshpur","200,Belthangady","201,Moodabidri","202,Mangalore City South","203,Mangalore","204,Mangalore City North","205,Bantval","206,Puttur","207,Sullia","208,Madikeri","209,Virajpet","210,Piriyapatna","211,Krishnarajanagara","212,Hunsur","213,Heggadadevankote","214,Nanjangud","215,Chamundeshwari","216,Krishnaraja","217,Chamaraja","218,Narasimharaja","219,Varuna","220,T Narasipur","221,Hanur","222,Kollegal","223,Chamarajanagar",",Gundlupet","225,banglore"];
+
+
+function autopick_t() {
+    var input, filter, ul, li, a, i;
+    document.getElementById("listul").style.display="block";
+    input = document.getElementById("search_candidate");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("listul");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i];    
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+
+        }
+    }
+}
+
+
+jQuery.each(availableTags, function(index){
+  var at = [availableTags[index].split(",")[0]];
+var at1=[availableTags[index].split(",")[1]];
+
+  alld+="<li data-prt1='"+at+"'>"+at1+"</li>";
+});
+jQuery('#listul').append(alld);
+
+jQuery(document).ready(function(){
+overflow_ys();
+})
+
+  
+jQuery('ul#listul li').click(function(){    
+var val_aut  = jQuery(this).text();
+var id_val_aut = jQuery(this).attr('data-prt1');
+var sl_val_aut = val_aut;
+     
+jQuery('#search_candidate').val(sl_val_aut);
+jQuery('#listul').css('display','none');
+candidate_data(sl_val_aut, id_val_aut);   
+jQuery('#close_t').css('display','block');
+setTimeout(overflow_ys,1000);
+
+})   
+
+
+jQuery('.election_map_container').click(function(){    
+clear_ulist();
+})
+
+jQuery('#search_candidate').blur(function(){              
+  var val_d = jQuery(this).val();     
+  candidate_data(val_d);     
+})  
+jQuery('input[type=text]').on('keydown', function(e) {
+	if (e.which == 13) {
+	var val_d = jQuery(this).val();     
+	candidate_data(val_d);  
+	}
+});   
+     
+jQuery.getJSON('../json/candidate_json1/karnataka-candidate.json', function (data) {
+mapData = data;
+candidate_data = function (district, areaid){
+  try {
+  var showData = jQuery('.bottom_part'); 
+  if(district!=null && district!=""){
+     showData.html('<div class="loader_data_image"><img src="../assets/images/loader.gif" class="loader_image" alt="Data is Loading..." /></div>');  
+     var json_obj = mapData;
+	 setTimeout(function(){
+       var content ='';
+       showData.empty();
+          if(json_obj[district]!=""){
+      for(var i in json_obj[district])    
+      {
+       content = '<div class="candidate_row c'+json_obj[district][i].win_loss+'"><div class="left_part_cn"><img src="../assets/images/image.gif" class="candidate_image"><span class="candidate_desc"><h3>'+json_obj[district][i].candidate+'</h3><h4>'+json_obj[district][i].party+'</h4></span></div><div class="right_part_cn"><span class="win_lose '+json_obj[district][i].win_loss+'">'+json_obj[district][i].win_loss+'</span><span class="share_icon_t"><a href="#" title=""></a></span></div></div>';
+          showData.append(content);       
+  
+      }      
+      }
+      else
+      {
+       showData.html('No Data');    
+       console.log("No Data");     
+      }
+
+      if(areaid != undefined){
+      var mapObj = map.getObjectById(areaid);
+      if(mapObj != undefined){
+        map.clickMapObject(mapObj);
+      }
+     }  
+    },500);
+   }   
+  else
+  {
+    showData.empty();
+    var content = '<div class="candidate_row"><h3>No Data found.</h3></div>';
+        showData.append(content);
+    console.log("No Data");
+  }
+}catch(e)
+{
+  console.log("Exception" + e);   
+}
+}
+  });
+
+
+                   
+
+
+</script>
+
+ 
+
+</body>
+</html>

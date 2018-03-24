@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AAA</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+</head>
+<body>
+<link href="http://media2.intoday.in/indiatoday/resources/newswiz-2017/newcss/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://media2.intoday.in/indiatoday/resources/newswiz-2017/newcss/reset.css" type="text/css">
+<link rel="stylesheet" href="http://media2.intoday.in/indiatoday/resources/newswiz-2017/newcss/style.css" type="text/css">
+
+<style type="text/css">
+.video_episode_snippets .video_inner span.icon_video_newswiz{top: 2.9%; right: 2.9%;}	
+.timeline-slider{height: 320px;overflow-y: hidden;}
+</style>
+<script src="http://media2.intoday.in/indiatoday/hitachi/js/jquery-3.2.1.min.js"></script>
+
+	<script>
+	$(document).ready(function(){
+var slidArr = 
+[{
+	"img": "http://media2.intoday.in/indiatoday/resources/newswiz-2017/newimages/ep_8.jpg",
+	"text": "Rajdeepshakes a leg with Katrina Kaif, Sidharth Malhotra",
+	"link": "j4l8vmt30g"
+}, {
+	"img": "http://media2.intoday.in/indiatoday/images/stories/news-wiz-video-647_081416031346.jpg",
+	"text": "Watchthis all-rounder genius girl make Rajdeep dance",
+	"link": "j4hqcmz49s"
+}, {
+	"img": "http://media2.intoday.in/indiatoday/images/stories/newswiz-video_647_081016044457.jpg",
+	"text": "NewsWiz goes to Tagore International School, Delhi",
+	"link": "j4g0xp3qm8"
+}, {
+	"img": "http://media2.intoday.in/indiatoday/images/stories/rap-song-video_647_080716020800.jpg",
+	"text": "NewsWiz gets its own rap song",
+	"link": "j4g074osio"
+}, {
+	"img": "http://media2.intoday.in/indiatoday/resources/newswiz-2017/newimages/2017/rightSlider/for-first-link.jpg",
+	"text": "Rapidfire with Jacqueline Fernandez on New Wiz",
+	"link": "j4e9b0q7z4"
+}, {
+	"img": "http://media2.intoday.in/indiatoday/resources/newswiz-2017/newimages/2017/rightSlider/second.jpg",
+	"text": "BestFoot Forward: When Hrithik made Rajdeep dance on News Wiz",
+	"link": "j4e9b1yznk"
+}, {
+	"img": "http://media2.intoday.in/indiatoday/resources/newswiz-2017/newimages/2017/rightSlider/salman-video_647_0704161223.gif",
+	"text": "India's irst News Quiz Show with 'Sultan' Salman Khan",
+	"link": "j4ariq9xxc"
+}, {
+	"img": "http://media2.intoday.in/indiatoday/resources/newswiz-2017/newimages/2017/rightSlider/video1.jpg",
+	"text": "News is knowledge, knowledge is news: Get ready for India Today News Wiz",
+	"link": "j4e82mib40"
+}, {
+	"img": "http://media2.intoday.in/indiatoday/resources/newswiz-2017/newimages/2017/rightSlider/video2.jpg",
+	"text": "Newswiz,India's biggest news quiz: Anil Kapoor",
+	"link": "j4e82minnk"
+}, {
+	"img": "http://media2.intoday.in/indiatoday/resources/newswiz-2017/newimages/2017/rightSlider/video3.jpg",
+	"text": "Arebrains better than brawn? Salman Khan will tell you this Sunday",
+	"link": "j4e82minog"
+}, {
+	"img": "http://media2.intoday.in/indiatoday/resources/newswiz-2017/newimages/2017/rightSlider/video4.jpg",
+	"text": "Losingand Winning with the mind, with Sultan Salman Khan",
+	"link": "j4e82minpc"
+}]; 
+
+
+var LINK_URL= 'http://indiatoday.intoday.in/embed/';
+var slidOut='';
+var appDiv=$('.slider-year ul');
+
+$(slidArr).each(function(i){
+try{	
+slidOut+='<li><div class="video_episode_snippets"><div class="video_inner"><a href="'+LINK_URL+slidArr[i].link+'" title="'+slidArr[i].text+'"><span class="icon_video_newswiz"></span> <img src="'+slidArr[i].img+'" alt="Newswiz"><p>'+slidArr[i].text+'</p></a></div></div></li>';
+}catch(e){
+	console.log("Exception Fetch data: " +e);
+
+}
+})
+
+
+appDiv.html(slidOut);
+
+
+//var nlength_sld = $('slider-year ul li').length;
+var nlength_sld = slidArr.length;
+var nwidth_sld =$('.slider-year ul li').width();
+var next_sld = $('#next_sld');
+var prev_sld  = $('#pre_sld');
+setTimeout(function(){slider_left_right(slidArr.length,nwidth_sld)},1000);  
+
+
+function slider_left_right(sliderLength,sliderWidth){  
+
+var ntotwidth_sld = nlength_sld*nwidth_sld;
+var ncontUl = $('ul.blt_sld');
+$('ul.blt_sld').css('width',ntotwidth_sld);
+var sldcount=1;
+next_sld.click(function(){
+	console.log("clicked" + sliderWidth);
+	try{
+	 prev_sld.css('opacity','1'); 	
+	if(sldcount<nlength_sld){
+      ncontUl.animate({
+      	left:'-='+sliderWidth
+      })
+      sldcount++;
+	}
+	else
+	{
+      next_sld.css('opacity','0.3');
+	}
+	}catch(e){
+	console.log("Exception Next click: " +e);
+}
+})
+prev_sld.click(function(){
+	try{
+	if(sldcount==1){
+    prev_sld.css('opacity','0.3'); 
+	}
+	else
+	{
+   next_sld.css('opacity','1'); 		
+	ncontUl.animate({
+      	left:'+='+sliderWidth
+      })
+	sldcount--;
+	}
+	}catch(e){
+	console.log("Exception prev click: " +e);
+}
+
+
+})
+}
+
+var clAct = $('ul.blt_sld li .video_episode_snippets .video_inner a');
+var hrefurl;
+var plyBox = $('.video_pic #videoplayer');
+clAct.click(function(e){
+try{	
+e.preventDefault();
+$('.video_pic').addClass('showvideo');
+hrefurl = $(this).attr('href');
+console.log(hrefurl);
+plyBox.attr('src',hrefurl +'&autoplay=true');
+}catch(e){
+	console.log("Exception Player: " +e);
+}
+})
+
+$('#closevideo').click(function() {
+$('.video_pic').removeClass('showvideo');
+$('#videoplayer').attr('src', '');
+});
+
+})
+
+
+
+</script>
+
+<style>
+.timeline-slider #next_sld {background: rgba(0, 0, 0, 0) url(http://media2.intoday.in/indiatoday/resources/newswiz/newimages/like-dislike-sprite.png) no-repeat scroll -19px -90px;height: 19px;text-indent: -99999px;width: 22px;opacity: 1;right: 12px;position: absolute;top: 0;}
+.timeline-slider #pre_sld {background: url(http://media2.intoday.in/indiatoday/resources/newswiz/newimages/like-dislike-sprite.png) no-repeat scroll 0 -90px;height: 19px; text-indent: -99999px;width: 19px;opacity: 1; right: 43px;left: inherit;position: absolute;top: 0;}
+.video_pic{display: none}
+</style>
+
+<div class="container">
+
+<div class="timeline-slider">
+<div class="timeline-outer">
+<a href="javascript:void(0);" id="pre_sld">pre</a> 
+<a href="javascript:void(0);" id="next_sld">next</a>
+<div class="slider-year">
+<ul class="blt_sld">
+
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div class="video_pic"><span id="closevideo">X</span>
+  <iframe id="videoplayer" width="700px" height="550px" frameborder="0" allowfullscreen="" src=""></iframe>
+</div>
+
+
+
+</body>
+</html>

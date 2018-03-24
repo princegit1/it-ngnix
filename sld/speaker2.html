@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+<title>Sp</title> 
+</head>
+<body>
+<link href="http://media2.intoday.in/indiatoday/hitachi/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="http://media2.intoday.in/indiatoday/hitachi/css/hitachi_event_2017.css" rel="stylesheet" type="text/css"/>
+<script src="http://media2.intoday.in/indiatoday/hitachi/js/jquery-3.2.1.min.js"></script>
+                <style>
+.speakerName {
+    height: 74px;
+    line-height: 16px;
+    padding-top: 5px;
+    bottom: -46px;
+}
+                </style>
+<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 about_container">
+  <div class="heading_page_hsic">
+    <h3>Speakers</h3>
+  </div>
+<div class="content_page_hsic">
+<div class="homeLeftSec">
+<ul class="speakerImgSec">
+</ul>
+</div>
+</div>
+</div>
+ 
+ 
+ 
+<script>
+$(document).ready(function(){
+   var t2,t1;
+   t1 =performance.now();
+var speimg = {
+    spkimgpath : 'http://media2.intoday.in/indiatoday/hitachi/images/speakers/',
+    spkarry : [{
+    "imagename": "KB-Nagaraju.png",
+    "speakerName": "KB Nagaraju",
+    "designation": " CEO , Innovative Retail Concepts Ltd (BigBasket) "
+}, {
+    "imagename": "Ravi-Raghavan.png",
+    "speakerName": "Ravi Raghavan",
+    "designation": " MD & CEO , Bharat Fritz Werner "
+}, {
+    "imagename": "S-Ganesh-Mani.png",
+    "speakerName": "S Ganesh Mani",
+    "designation": " SVP , Hyundai Motor India Ltd "
+}, {
+    "imagename": "Anindya-Bhattacharya.png",
+    "speakerName": "Anindya Bhattacharya",
+    "designation": " Lead Digital Operations , Hitachi Consulting "
+}, {
+    "imagename": "Dr-N-Rajendran.png",
+    "speakerName": "Dr. N Rajendran",
+    "designation": " CTO , National Payments Corporation of India "
+}, {
+    "imagename": "Pradeep-Singh-Kharola.png",
+    "speakerName": "Pradeep Singh Kharola",
+    "designation": " IAS, MD , Bangalore Metro Rail Corporation "
+}, {
+    "imagename": "Mangal-Dev.png",
+    "speakerName": "Mangal Dev",
+    "designation": " Director and Head , Hitachi Rail Systems BU, India and South Asia Region "
+}, {
+    "imagename": "Dr-Anjali-K-Mohan.png",
+    "speakerName": "Dr Anjali K Mohan",
+    "designation": "Research & Policy Head , IHF "
+}, {
+    "imagename": "Anveshi-Gutta.png",
+    "speakerName": "Anveshi Gutta",
+    "designation": "Director, Public and Government Sector , PwC India "
+}, {
+    "imagename": "Dr.-Manvendra-Deswal.png",
+    "speakerName": "Dr Manvendra Deswal",
+    "designation": "Head, Smart City Mission, CII "
+}, {
+    "imagename": "Gopalakrishna-Kuppuswamy.png",
+    "speakerName": "Gopalakrishna Kuppuswamy",
+    "designation": "VP, Global Solutions, Hitachi Consulting "
+}, {
+    "imagename": "kumar-kv.png",
+    "speakerName": "Kumar KV",
+    "designation": "VP & Group Head, IT, Narayana Hrudayalaya "
+}, {
+    "imagename": "Mukesh-Deshpande.png",
+    "speakerName": "Mukesh Deshpande",
+    "designation": "Executive Director, PwC India "
+}, {
+    "imagename": "piyush-chowhan.png",
+    "speakerName": "Piyush Chowhan",
+    "designation": "VP & CIO, Arvind Lifestyle Brands Ltd "
+}, {
+    "imagename": "Jayraj-Ugarkar.png",
+    "speakerName": "Jayraj Ugarkar",
+    "designation": "Director, IoT & Analytics, Hitachi Consulting "
+}],
+    spkrender:function(){
+        var imgOut="";
+        var imgpath = this.spkimgpath;
+        $(this.spkarry).each(function(i,v){
+                imgOut+='<li><img src="'+imgpath+v.imagename+'" alt="" /><span class="speakerName">'+v.speakerName + '<br> <em>Lead Digital Operations, Hitachi Consulting</em></span></li>';         
+        });
+        $(imgOut).appendTo('ul.speakerImgSec');
+    },
+    init:function(){
+        console.log(this.spkimgpath);
+        this.spkrender();
+    }
+};
+speimg.init();
+t2 =performance.now();
+console.log(t2-t1)
+});
+</script>
+ 
+ 
+</body>
+</html>

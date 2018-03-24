@@ -1,0 +1,22 @@
+*{ margin:0; padding:0;}
+body{margin:0; padding:0;font: 100% Noto Sans,sans-serif;}
+.statename{ text-align: center; background:#e7e7e7; padding:5px 0; font-size:15px; font-weight:bold; color:#545454; position: relative;}
+.statename span.sharethis{ position: absolute; top:0px; right:5px;}
+.statename span.sharethis a{ text-indent:-9999px; text-decoration: none; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABIUlEQVQ4jZXTvy5EQRTH8c+y2UohKt5BLShkClGIB5BoqMS/GgWObESoNLZQqHbRe4FtPIEXUCyVSrURheJecbO5u+ypZs45853f70ym4p8REbCNHdRwh3r1vwCs47qwP0ZtZAjARhn0TwW59BVMl9UHKoiIhCc8YqKk5aYSESPYxRq6Mp8vqGMpb/zAFV6xKRtiC5dVHOCsQF0orLto4Dwi3n9uLUqoYqtE2hduUY+IziCb1VxOb3RwGhFvgw7DaEppCnM9+XHspJQmU0rP7Xb7ox+gEhE1nGMVn2hiFot5Tze3c4EZmeUa7tGo9CNHxDxO/L7El8xyMQ77AgqgWRxhuaTc+RNQAD1hvif9PsxfaJXkmsP8xgbGsCebxQP2vwGZ40JALtbyLAAAAABJRU5ErkJggg==) no-repeat center center;width:30px; height:32px; display: block;}
+.partyname-seats table td{ text-align:center; font-size:12px; font-weight:bold; color:#545454; position: relative; padding-top:20px;}
+.partyname-seats table td span.winseats{ display: block;}
+.partyname-seats table td span.partybrand{width:7px; height:7px;display: block;position: absolute;top:10px; left:50%; border-radius:100%;transform: translateX(-50%); -webkit-transform: translateX(-50%);}
+.leadparty-table{ width:100%; margin:0 auto;}
+.leadparty-table table th,.leadparty-table table td{ text-align:center;}
+.leadparty-table table th{font-size: 14px;color: #232323;font-weight: normal;} 
+.leadparty-table table td{ font-size:14px; color:#545454; font-weight: bold}
+.leadparty-table table td.partyname span.partybrand{width:4px; height:100%; display: block; position: absolute; top:0px; left:0;}
+.leadparty-table table td.partyname{ text-align:left; padding-left:15px; position: relative; font-weight: bold}
+
+
+/* Condition base css like homepage & statepage*/
+body.statecontent .partyname-seats{ display: none;}
+body.homecontent .leadparty-table{ display: none;}
+
+#hmelect-uttar-pradesh,#hmelect-goa,#hmelect-manipur,#hmelect-punjab,#hmelect-uttarakhand,#hmelect-gujarat,#hmelect-himachalpradesh,#hmelect-gujarat,#hmelect-himachalpradesh{display: block;background: url(https://smedia2.intoday.in/elections/2017/html/a-election1.0/resources/images/hafe_way_mark.gif);
+    background-repeat: no-repeat; background-position: center top;padding-top:15px;}

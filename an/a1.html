@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ang</title>
+	<script src="angular.min.js"></script>
+</head>
+<body>
+	<div class="mn">
+		<div class="contr" ng-controller="ctrl1">
+			{{aa}}
+
+			<button id="btn" >Click</button>
+				<abc></abc>
+		</div>
+
+	</div>
+
+
+
+	<script type="text/javascript">
+		
+		var app1 = angular.module('mpp', []);
+		$rootScope.nme = {'name':'aasdasd','id':'23'};
+		app1.value("tt", "asdasd asdasd");
+		app1.controller('ctrl1', ['$scope', function($scope){
+		$scope.aa = "GGGGGGGGG"	;
+		
+		$scope.fun1 = function(){
+			$scope.aa = "Chaasdas asdasd";
+			
+			
+		}
+
+	/*	document.querySelector('button').addEventListener(function(){
+			$scope.fun1();
+			console.log("ccccc");
+		},false);*/
+		}]);
+app1.directive('abc',  function($scope){
+	// Runs during compile
+	return {
+		// name: '',
+		// priority: 1,
+		// terminal: true,
+		//scope: {}, // {} = isolate, true = child, false/undefined = no change
+		// controller: function($scope, $element, $attrs, $transclude) {},
+		// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
+		// restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
+		template: 'Name: {{nme.name}}, Id: {{nme.id}}'
+		// templateUrl: '',
+		// replace: true,
+		// transclude: true,
+		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
+		/*link: function($scope, iElm, iAttrs, controller) {
+			
+		}*/
+	};
+});
+		angular.element(function(){
+			angular.bootstrap(document, ['mpp']);
+		});
+	</script>
+</body>
+</html>

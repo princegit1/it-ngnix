@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Html</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../../assets/css/map.css" />
+<style type="text/css">
+ul#listul{position: absolute;width: 85%;list-style-type: none;background: #fff;padding: 0;box-shadow: 0 0 2px #ccc;margin: 0;    text-align: left;z-index: 111; display:none; max-height: 300px; overflow-y: scroll;}
+ul#listul li{ padding:5px 10px;border-bottom: 1px solid #eee; cursor: pointer;}
+.ammapDescriptionWindow.amcharts-description-div{ display: none; }
+</style><script type='text/javascript'>
+	var _comscore = _comscore || [];
+	_comscore.push({ c1: "2", c2: "8549097" });
+	(function() {
+	var s = document.createElement("script"), el = document.getElementsByTagName("script")[0];
+	s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+	el.parentNode.insertBefore(s, el);
+	})();
+	</script><noscript><img src="http://b.scorecardresearch.com/p?c1=2&amp;ac2=8549097&amp;cv=2.0&amp;cj=1"/></noscript>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	ga('create', 'UA-795349-17', 'auto');
+	ga('send', 'pageview');
+	
+	</script>
+</head>
+<body>
+
+<script src="../../assets/js/ammap_election.js"></script>         
+<script src="../../assets/js/goa-map.js"></script>
+<script src="../../assets/js/light.js"></script>
+
+<div class="election_map_container">
+<img src="../../assets/images/loader.gif" class="loader_image_main" alt="Data is Loading..." />
+<div class="map_container">
+
+<div class="left_align_candidates">
+<div class="top_part">
+  <!-- <input type="text" name="Search" id="search_candidate" onClick="candidate_data(this.value)">  -->
+      
+      <input type="text" name="Search" id="search_candidate" placeholder="Search Candidate..." onkeyup="autopick_t()"> 
+  <span id="close_t">X</span>
+
+
+  <ul id="listul">
+
+  </ul>
+
+</div>
+<div class="bottom_part">
+
+
+   
+</div>
+</div>
+<div id="chartdiv"></div>
+<div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+</div>
+
+<script src="../../assets/js/jquery.min.js"></script>
+
+<script>   
+$.noConflict();
+var map;
+try{
+jQuery.getJSON('../../json/provider_json/goa-provider.json', function (data) {
+ 
+map = AmCharts.makeChart("chartdiv", {
+  "type": "map",
+  "theme": "light",
+  "images": [
+      {
+        "type": "circle",
+        "label": "Circle Test",
+        "top": 100,
+        "left": 100
+      }   
+    ],    
+  "dataProvider": data,
+  "smallMap": {
+   "backgroundAlpha": 0.4
+         },
+  "zoomduration":0.8,
+  "areasSettings": {
+    "bringForwardOnHover":true, 
+    "autoZoom": true,
+    "color": "#1A5FFF",
+    "rollOverColor": "#00298B",
+    "descriptionWindowY": 20,
+    "descriptionWindowX": 500,
+    "descriptionWindowWidth": 300,
+    "descriptionWindowHeight": 330
+  },
+  "zoomControl": {
+    "zoomControlEnabled": true,
+    "bottom":50,
+    "right":10
+  },
+   "listeners": [{
+    "event": "clickMapObject",
+    "method": function(event) {
+      document.getElementById("search_candidate").value =  event.mapObject.title ;
+       document.getElementById("search_candidate").focus();
+       candidate_data(event.mapObject.title); 
+       setTimeout(overflow_ys,2000);   
+    }
+  }]
+});
+});
+}catch(e){
+  console.log(e);
+}
+
+
+function search_cn(){  
+var d1v = document.getElementById("search_candidate").value;
+//console.log(d1v);
+
+if(d1v!=''){
+document.getElementById("close_t").style.display="block";
+}
+else
+{
+document.getElementById("close_t").style.display="none";  
+}
+
+}
+
+function cleardata(){
+  
+  document.getElementById("search_candidate").value="";
+}
+
+document.getElementById("search_candidate").addEventListener("focus", search_cn);
+document.getElementById("search_candidate").addEventListener("blur", search_cn); 
+document.getElementById("close_t").addEventListener("click", cleardata); 
+
+
+
+function clear_ulist(){
+
+  document.getElementById("listul").style.display="none"; 
+}
+function overflow_ys()
+{
+var length_left_sec = jQuery('.bottom_part').children('.candidate_row').length;
+console.log("height_left_sec: " + length_left_sec);  
+if(length_left_sec>=6)    
+{
+jQuery('.bottom_part').addClass('overflow_scroll');
+}
+else   
+{
+jQuery('.bottom_part').removeClass('overflow_scroll');      
+}
+}
+
+</script>
+
+
+
+<script>
+
+
+var mapData = [];
+var candidate_data;
+var availableTags = [
+"5001,Mandrem","5002,Pernem","5003,Bicholim","5004,Tivim","5005,Mapusa","5006,Sivolim","5007,Saligao","5008,Calangute","5009,Porvorim","5010,Aldona","5011,Panaji","5012,Taleigao","5013,St. Cruz","5014,St.Andre","5015,Cumbarjua","5016,Maem","5017,Sanquelim","5018,Poriem","5019,Valpoi","5020,Priol","5021,Ponda","5022,Siroda","5023,Marcaim","5024,Mormugao","5025,Vasco Da Gama ","5026,Dabolim","5027,Cortalim","5028,Nuvem","5029,Curtorim","5030,Fatorda","5031,Margao","5032,Benaulim","5033,Navelim","5034,Cuncolim","5035,Velim","5036,Quepem","5037,Curchorem","5038,Sanvordem","5039,Sanguem","5040,Canacona"];
+
+var alld = "";
+
+function autopick_t() {
+    var input, filter, ul, li, a, i;
+    document.getElementById("listul").style.display="block";
+    input = document.getElementById("search_candidate");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("listul");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i];    
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+
+        }
+    }
+}
+
+
+jQuery.each(availableTags, function(index){
+    var at = [availableTags[index].split(",")[0]];
+var at1=[availableTags[index].split(",")[1]];
+
+
+
+//  console.log(availableTags[index]);
+
+//nsole.log(at1);
+    alld+="<li data-prt1='"+at+"'>"+at1+"</li>";
+});
+jQuery('#listul').append(alld);
+
+jQuery(document).ready(function(){
+overflow_ys();
+})
+
+  
+jQuery('ul#listul li').click(function(){    
+var val_aut  = jQuery(this).text();
+var id_val_aut = jQuery(this).attr('data-prt1');
+//var id_val_aut = val_aut.split(",")[0];
+//var sl_val_aut = val_aut.split(",")[1];   
+var sl_val_aut = val_aut;
+//alert(sl_val_aut);       
+jQuery('#search_candidate').val(sl_val_aut);
+jQuery('#listul').css('display','none');
+candidate_data(sl_val_aut, id_val_aut);   
+jQuery('#close_t').css('display','block');
+
+setTimeout(overflow_ys,1000);
+})
+
+
+jQuery('.election_map_container').click(function(){    
+clear_ulist();
+})
+
+jQuery('#search_candidate').blur(function(){              
+  //alert("asdasdasd");    
+  var val_d = jQuery(this).val();     
+  candidate_data(val_d);     
+})  
+jQuery('input[type=text]').on('keydown', function(e) {
+    if (e.which == 13) {
+      var val_d = jQuery(this).val();     
+  candidate_data(val_d);  
+    }
+});    
+
+jQuery.getJSON('../../json/candidate_json1/goa-candidate.json', function (data) {
+ 
+mapData = data;
+candidate_data = function (district, areaid){
+  try {
+  var showData = jQuery('.bottom_part'); 
+
+  if(district!=null && district!=""){
+     showData.html('<div class="loader_data_image"><img src="../../assets/images/loader.gif" class="loader_image" alt="Data is Loading..." /></div>');  
+    
+      var json_obj = mapData;
+ 
+          
+    setTimeout(function(){
+       var content ='';
+       showData.empty();
+          if(json_obj[district]!=""){
+      for(var i in json_obj[district])    
+      {
+
+      
+        content = '<div class="candidate_row"><div class="left_part_cn"><img src="../../assets/images/image.gif" class="candidate_image"><span class="candidate_desc"><h3>'+json_obj[district][i].candidate+'</h3><h4>'+json_obj[district][i].party+'</h4></span></div><div class="right_part_cn"><span class="win_lose '+json_obj[district][i].win_loss+'">'+json_obj[district][i].win_loss+'</span><span class="share_icon_t"><a href="#" title=""></a></span></div></div>';
+          showData.append(content);  
+    
+      }  
+      }
+      else
+      {
+       showData.html('No Data');    
+       console.log("No Data");     
+      }
+
+      if(areaid != undefined){
+      var mapObj = map.getObjectById(areaid);
+      if(mapObj != undefined){
+        map.clickMapObject(mapObj);
+      }
+     }  
+    },500);
+   
+
+  }   
+  else
+  {
+    showData.empty();
+    var content = '<div class="candidate_row"><h3>No Data found.</h3></div>';
+        showData.append(content);
+    console.log("No Data");
+  }
+}catch(e)
+{
+  console.log("Exception" + e);   
+}
+}
+  });
+
+
+
+
+
+</script>
+
+ 
+
+</body>
+</html>

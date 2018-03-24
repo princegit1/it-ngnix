@@ -1,0 +1,259 @@
+<div class="container--inner">
+    
+      <div aria-label="Question Content" class="challenge-text hrx-version ck_table-wrap fadeinContent" style="min-height:100px;"><p>Given two integers, <em>l</em> and <em>r</em>, print all the odd numbers between <em>l</em> and <em>r (l and r&nbsp;inclusive)</em>.&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>Complete the <em>oddNumbers</em> function in the editor below. It has 2 parameters:</p>
+
+<ol>
+	<li>An integer, <em>l</em>, denoting the left part of the range.</li>
+	<li>An integer, <i>r</i>, denoting the right part of the range.</li>
+</ol>
+
+<p>The function must return an array of integers&nbsp;denoting the odd numbers between <em>l</em> and <em>r</em>.</p>
+
+<p>&nbsp;</p>
+
+<p><strong>Input Format</strong></p>
+
+<p>Locked stub code in the editor reads the following input from stdin and passes it to the function:</p>
+
+<p>The first line contains an integer, <i>l</i>, denoting the left part of the range.</p>
+
+<p>The second line contains an integer, r, denoting the right part of the range.</p>
+
+<p>&nbsp;</p>
+
+<p><strong>Constraints</strong></p>
+
+<ul>
+	<li><em>1 ≤ l ≤&nbsp;r ≤ 10<sup>5</sup></em></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><strong>Output Format</strong></p>
+
+<p>The function must return an array of integers&nbsp;denoting the odd numbers between <em>l</em> and <em>r</em>. This is printed to stdout by locked stub code in the editor.</p>
+
+<p>&nbsp;</p>
+
+<p><strong>Sample Input 0</strong></p>
+
+<pre>2
+5
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>Sample Output 0</strong></p>
+
+<pre>3
+5
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>Explanation 0</strong></p>
+
+<p>The value of l is 2 and value of r is 5. The odd numbers between [2, 5] are 3 and 5.</p>
+
+<p>&nbsp;</p>
+
+<p><strong>Sample Input 1</strong></p>
+
+<pre>3
+9
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>Sample Output 1</strong></p>
+
+<pre>3
+5
+7
+9
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>Explanation 1</strong></p>
+
+<p>The value of l is 3 and value of r is 9. The odd numbers between [3, 9] are 3, 5, 7 and 9.</p>
+
+<p>&nbsp;</p>
+</div>
+      <div class="clear"></div>
+      <div class="soft-divider mlB"></div>
+      
+        <div class="mlB">
+          <strong>YOUR ANSWER</strong>
+          <div class="pull-right mlB hidden js-pinheader"><a class="btn js-btnpin" data-pin="False" title="Pin/unpin the Run and Submit code buttons below"><i class="icon--single icon-pencil"></i> Pin code header/footer</a></div>
+        </div>
+      <div class="clear"></div>
+      
+      <div class="qcontent fadeinContent" style="min-height:200px;"><div class="question-coding" style="width: 100%;">
+<div class="banner mlB js-codeeditor csx-tour-banner">
+    <div class="js-closetour csx-closetour-button"><a class="btn btn-link">✖</a></div>
+    <div class="row csx-tour-row">
+        <div class="span15 mmT" style="text-align:left"> We recommend you take a quick tour of our editor before you proceed. The timer will pause up to 90 seconds for the tour. &nbsp; <a class="js-starttour btn btn-small btn-primary">Start tour</a></div>
+    </div>
+</div>
+<div id="input-output-help"></div>
+<style>.code-body .CodeMirror-scroll{overflow-y: auto !important;}</style>
+
+<div id="editor" class="codeshell mlT mlB">
+<div class="clearfix grey-header fixed-hand0 cap plL plR psT psB" style="position: relative;">
+  <div class="msT pull-left"><em id="status-text">Draft saved 02:23 pm</em></div>
+  
+  
+  <div class="pull-right">
+    
+      
+        <div class="inline">
+         
+            <a class="js-showoriginalcode btn btn-medium"> Original code </a>
+         
+         </div>
+        
+    
+    <div class="inline large lines inverse pull-right msT msL">
+      
+      
+      
+        <i id="vertical-icon" style="background-repeat: no-repeat; background-position: 50% 50%; border:none; float:left; margin-right: 7px;" class="orientation-icon js-tooltip" data-placement="bottom" title="" data-analytics="VerticalViewSwitch" data-attr-question_id="3pramr7a684" data-attr-attempt_id="5353825" data-attr-test_id="sample" data-original-title="Switch to vertical layout"></i>
+      
+      <a class="hide" style="display:none;"></a>
+      <div class="settings-editor" style="position:relative; margin-left: 0px;">
+        <a class="cursor no-select" data-analytics="CodeShellShowPreferences" id="show-preferences"><i class="icon-cog icon--grey no-select"></i></a>
+        <div id="pref-pane" style="position: absolute;right: -0.5em;top: 2em;z-index: 9;background: #fff;border: 1px solid #ddd;border-radius: 5px;padding: 10px;  width: 20em; display: none;">
+          <div style="position: absolute;width: 0;right: 0.8em;height: 0;border-left: 7px solid transparent;border-right: 7px solid transparent;border-bottom: 7px solid #ddd;top: -0.4em;"></div>
+          
+            <div class="formgroup horizontal">
+              <label class="span5">Editor Mode</label>
+              <div class="inline">
+                <div class="btn-group no-select">
+                  <a data-analytics="CodeShellEditorMode" data-attr1="Emacs" class="cursor emacs btn btn-small btn-white editor-mode-button no-select" data-editor="emacs">Emacs</a>
+                  <a data-analytics="CodeShellEditorMode" data-attr1="Normal" class="cursor default btn btn-small btn-white editor-mode-button no-select" data-editor="sublime">Normal</a>
+                  <a data-analytics="CodeShellEditorMode" data-attr1="Vim" class="cursor vim btn btn-small btn-white editor-mode-button no-select" data-editor="vim">Vim</a>
+                </div>
+              </div>
+            </div>
+          
+          
+          <div class="formgroup horizontal">
+            <label class="span5">Tab Spaces</label>
+            <div class="inline">
+              <div class="btn-group no-select">
+                <a data-analytics="CodeShellEditorSpace" data-attr1="2" class="cursor 2space btn btn-small btn-white editor-tabspace-button no-select" data-editor="2">2 spaces</a>
+                <a data-analytics="CodeShellEditorSpace" data-attr1="4" class="cursor 4space  btn btn-small btn-white editor-tabspace-button no-select btn-primary" data-editor="4">4 spaces</a>
+                <a data-analytics="CodeShellEditorSpace" data-attr1="8" class="cursor 8space btn btn-small btn-white editor-tabspace-button no-select" data-editor="8">8 spaces</a>
+              </div>
+            </div>
+          </div>
+          
+            <div class="formgroup horizontal">
+              <label class="span5">Intellisense</label>
+              <div class="inline">
+                <div class="btn-group no-select">
+                  <a data-analytics="CodeShellAutoComplete" data-attr1="Enable" class="cursor emacs btn btn-small btn-white editor-autocomplete-button no-select btn-primary" data-editor="true">Enable</a>
+                  <a data-analytics="CodeShellAutoComplete" data-attr1="Disable" class="cursor default btn btn-small btn-white editor-autocomplete-button no-select" data-editor="false">Disable</a>
+                </div>
+              </div>
+            </div>
+          
+          
+            
+            <div class="formgroup horizontal">
+              <label class="span5"> Editor tour</label>
+               
+                  <a class=" btn btn-small"> Show tour </a>
+               
+            </div>
+              
+          
+        </div>
+      </div>
+    </div>
+    <div class="pull-right lang-placeholder">
+      <div class="dummy-lang-container hide"></div>
+      <div class="select2-container" id="s2id_select-lang"><a href="javascript:void(0)" onclick="return false;" class="select2-choice" tabindex="-1">   <span>Java 7</span><abbr class="select2-search-choice-close"></abbr>   <div><b></b></div></a><input class="select2-focusser select2-offscreen" type="text" id="s2id_autogen6" tabindex="-1" aria-label="Type the language that you want to code in and press enter"><div class="select2-drop select2-display-none">   <div class="select2-search select2-search-hidden select2-offscreen">       <input type="text" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false" class="select2-input" aria-label="Type the language that you want to code in and press enter">   </div>   <ul class="select2-results">   </ul></div></div><input type="hidden" id="select-lang" tabindex="-1" class="select2-offscreen" value="java" style="display: inline-block;">
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+
+<div class="hr_tour-code-solution movable-hand flex-row" style="display: flex;">
+  
+  <div class="code-checker">
+    <div id="notification-message" class="clearfix grey-header cap  hidden "> </div>
+    <div class="code-editors" style="max-height: 412px;">
+      
+      <div class="code-head not-allowed" style="display: block;">
+        
+        <textarea id="codeheadview" style="width: 100%; display: none;"></textarea><div class="CodeMirror cm-s-default CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5px; left: 46px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 41px; margin-bottom: -17px; border-right-width: 13px; min-height: 88px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>8</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 4px; top: 0px; height: 20px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -41px; width: 41px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -41px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div><div class="CodeMirror-gutter-elt" style="left: 29px; width: 11px;"><div class="CodeMirror-foldgutter-folded CodeMirror-guttermarker-subtle"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="CodeMirror-widget" role="presentation" cm-ignore-events="true"><span class="CodeMirror-foldmarker">↔</span></span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -41px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">&#8203;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -41px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span class="cm-keyword">class</span> <span class="cm-def">Solution</span> {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -41px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; border-bottom: 0px solid transparent; top: 88px;"></div><div class="CodeMirror-gutters" style="height: 101px; left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div><div class="CodeMirror-gutter CodeMirror-foldgutter"></div></div></div></div>
+      </div> 
+       <div class="loading-mode" style="display: none;">Loading Editor... </div> 
+      <div class="code-body" style="display: block;">
+        
+       <textarea id="codeview" style="width: 100%; display: none;"></textarea><div class="CodeMirror cm-s-default CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 85px; left: 409.891px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true" style="width: 18px; pointer-events: none;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true" style="height: 18px; pointer-events: none;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 41px; margin-bottom: 0px; border-right-width: 30px; min-height: 208px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>18</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style="visibility: hidden;"><div class="CodeMirror-cursor" style="left: 367.891px; top: 80px; height: 20px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation" style=""><div class="" style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -41px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">9</div><div class="CodeMirror-gutter-elt" style="left: 29px; width: 11px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">/*</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -41px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-comment">* Complete the function below.</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -41px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-comment">*/</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -41px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">&#8203;</span></span></pre></div><div style="position: relative;" class="CodeMirror-activeline"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -41px; width: 41px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -41px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">13</div><div class="CodeMirror-gutter-elt" style="left: 29px; width: 11px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">static</span> <span class="cm-type">int</span>[] <span class="cm-def">oddNumbers</span>(<span class="cm-type">int</span> <span class="cm-variable">l</span>, <span class="cm-type">int</span> <span class="cm-variable">r</span>) <span class=" CodeMirror-matchingbracket">{</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -41px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">&#8203;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -41px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">&#8203;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -41px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">16</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class=" CodeMirror-matchingbracket">}</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -41px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">17</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">&#8203;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -41px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">18</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">&#8203;</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; border-bottom: 0px solid transparent; top: 208px;"></div><div class="CodeMirror-gutters" style="height: 238px; left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div><div class="CodeMirror-gutter CodeMirror-foldgutter"></div></div></div></div>
+       </div>
+      
+      <div class="code-tail not-allowed" style="display: block;">
+        
+        <textarea id="codetailview" style="width: 100%; display: none;"></textarea><div class="CodeMirror cm-s-default CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5px; left: 46px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true" style="bottom: 0px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 41px; margin-bottom: -17px; border-right-width: 13px; min-height: 68px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>38</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 4px; top: 0px; height: 20px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -41px; width: 41px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -41px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">19</div><div class="CodeMirror-gutter-elt" style="left: 29px; width: 11px;"><div class="CodeMirror-foldgutter-folded CodeMirror-guttermarker-subtle"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-type">void</span> <span class="cm-def">main</span>(<span class="cm-type">String</span>[] <span class="cm-variable">args</span>) <span class="cm-keyword">throws</span> <span class="cm-variable">IOException</span>{<span class="CodeMirror-widget" role="presentation" cm-ignore-events="true"><span class="CodeMirror-foldmarker">↔</span></span>}</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -41px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">38</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; border-bottom: 0px solid transparent; top: 68px;"></div><div class="CodeMirror-gutters" style="height: 81px; left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div><div class="CodeMirror-gutter CodeMirror-foldgutter"></div></div></div></div>
+      </div> 
+      <div class="clearfix"></div>
+    </div>
+    <div id="codeeditor-statusbar" class="clearfix psA codeeditor_statusbar">
+      <span id="statusbar-mode"></span>
+      <div class="pull-right">
+        <span id="statusbar-line">Line: 13</span>
+        <span id="statusbar-col">Col: 44</span>
+        <span id="statusbar-count"></span>
+      </div>
+    </div>
+  </div>
+</div><div class="clearfix pmR pmL pmB plT fixed-hand1 codeshell-footer">
+  <div class="pull-right">
+    
+    
+    <button class="btn bb-compile msR " data-analytics="Compile and Test">Run Code</button>
+    
+    
+    <button class="btn btn-primary bb-submit ans-submit" data-analytics="Submit Code">Submit code &amp; Continue</button>
+    
+    
+    <div class="msT">(You can submit any number of times)</div>
+    
+  </div>
+  <div class="pull-left inline">
+      
+      
+      
+      <div class="mmT">
+          <label for="customtestcase"><div class="custom-checkbox-v3"><input type="checkbox" id="customtestcase"><span></span></div><span class="lmT msL">Test against custom input</span></label>
+          
+      </div>
+      
+  </div>
+  
+    <div class="js-custom-input hide-new-custom"><div data-reactroot="" class="customInputV2"><div class="container-fluid"><div class="visual-div"><div class="msT nav "><a href="#" data-analytics="raw-format" class="links link-unactive">Raw Format</a><a href="#" data-analytics="visual-format" class="links link-active">Visual Format</a><span class="quick_badge fnt-sz-small red" data-placement="right">beta</span></div><div class="outer-border"><div class="new-format" id="new"><div class="fname msB"><i class="icon-info-circled fnt-sz-small"></i><label><!-- react-text: 13 -->Debug function<!-- /react-text --><span class="func-name">oddNumbers</span><!-- react-text: 15 -->with your own input<!-- /react-text --></label><div id="parameters"><div class="inner-div-single"><div class="params"><label class="func-type float-left"><!-- react-text: 20 -->Integer <!-- /react-text --><span class="func-params">l</span></label></div><input type="text" class="text-width " value=""></div><div class="inner-div-single"><div class="params"><label class="func-type float-left"><!-- react-text: 26 -->Integer <!-- /react-text --><span class="func-params">r</span></label></div><input type="text" class="text-width " value=""></div></div></div><br></div></div></div></div></div></div>
+  
+</div></div>
+<small class="mlL leadingSpaceWarn hidden">
+    <em class="txt-atl-grey-dark warn-message"></em>
+</small>
+
+<div id="dllink clearfix" class="mdB mjT" style="clear:both"><a id="testcase-dl" aria-label="Download Test Cases" href="javascript:void(0);"><i class="icon--single icon-download"> Download sample test cases</i></a><small class="mlL"><em class="txt-alt-grey-dark">The input/output files have Unix line endings. Do not use Notepad to edit them on windows. </em></small></div>
+
+
+<div id="runstatus" class="clear"></div>
+
+    </div></div>
+      <div class="clear"></div>
+      
+    
+  </div>

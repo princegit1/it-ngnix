@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.defval {height: 40px;line-height: 40px;background: none;    font-size: 15px;    float: left;}
+#sortdiv {float: right;width: 28px;height: 23px;background: #fff url(https://akm-img-a-in.tosshub.com/sites/indiacontent/0/media/css/frontend/images/newbagsprite.png) 9px -272px no-repeat;cursor: pointer;}
+#sortdiv {height: 33px;background-position: 9px -265px;}
+.selction_box {padding:10px;width: 200px;float: right;border: 1px solid #e1e1e1;position: absolute;right: 0;z-index: 9999;top: 15px;}
+.popitemlist {padding: 7px 12px;cursor: pointer;border-top: 1px solid #E1E1E1;width:100%;box-sizing:border-box}
+.popularitem ul{list-style-type:none;padding:0;margin:0;}
+.popularitem {display: none;position: absolute;width: 157px;border: 1px solid #e1e1e1;background: #ececec;z-index: 111;top: 79px;color: #000;border-top: none;font-size: 12px;right: 24px;}
+</style>
+</head>
+<body>
+	   <script type="text/javascript" language="javascript" src="https://akm-img-a-in.tosshub.com/sites/indiacontent/staticcontain/css/jquery.min.js"></script>
+   				<div class="selction_box _topp">
+	
+	<div class="defval"><span class="sortby" id="sortbySpanDivId">Sort By: 
+	<span class="sortingV">Popularity</span></span></div><div id="sortdiv">
+	</div>
+</div>
+<div class="popularitem" style="display: none;">
+	<ul>
+		<li class="popitemlist sort" id="sortBy6">Latest</li>
+		<li class="popitemlist sort" id="sortBy2">Price High To Low</li>
+		<li class="popitemlist sort" id="sortBy1">Price Low To High</li> 
+		<li class="popitemlist sort" id="sortBy14">Highest Discount</li>
+		<li class="popitemlist sort" id="sortBy16">Popularity</li>
+	</ul>
+</div>
+  		
+<script>
+
+$(document).ready(function(){
+$('.selction_box').click(function(){
+	$('.popularitem').toggle();
+})
+$('.popitemlist').click(function(){
+	$('.sortingV').html($(this).html());
+	$(this).parent().parent().css('display','none');
+})
+})
+</script>
+  		 
+</body>
+</html>
+

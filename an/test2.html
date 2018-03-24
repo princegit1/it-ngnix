@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ang</title>
+	<script src="angular.min.js"></script>
+</head>
+<body>
+	<div class="wrapper" ng-app="app1">
+		{{color}}
+	<div ng-controller="ctrl">
+         {{t}}
+	</div>
+
+	<div ng-controller="ctrl2">
+        {{t}} -- {{a}}
+
+        {{mul1}} {{add1}}
+	</div>
+
+	<div ng-controller="ctrl3">
+    <div id="tt"></div>
+	</div>
+
+</div>
+
+<script>
+var a1 = angular.module('app1', []);
+a1.run(function($rootScope) {
+    $rootScope.color = 'blue';
+});
+a1.controller('ctrl',function($scope,$rootScope){
+	$scope.a = "FFFFFF FFFF";
+	$rootScope.t = "GGGGGG";
+})
+
+a1.controller('ctrl2',function($scope,cal,cal1){
+	$scope.aat = "222FFFFFF FFFF";
+	$scope.mul1 = cal.add(3);
+	$scope.add1 = cal1.add1(4);
+})
+
+
+
+a1.controller('ctrl3',function($scope,$http){
+   $http.get("a.html").then(function(response){
+   	$scope.w = response.data;
+   //	document.getElementById('tt').innerHTML = $scope.w;
+   })
+})
+
+a1.service('cal',  function(){
+	this.mul=function(x){
+		return x*x;
+	}
+	this.add=function(x){
+		return x+x;
+	}
+
+
+})
+
+a1.factory('cal1', function () {
+  return {
+    add1: function (x) {
+     return x+x;
+    }
+  }
+});
+
+
+</script>
+</body>
+</html>

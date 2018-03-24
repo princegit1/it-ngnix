@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+
+<script>
+var arr = [1,2,3,4,5,6,7,8,9];
+function get(l,r){
+	var out ="";
+	arr.forEach(function(v,i){
+		if(v>=l && v<=r){
+		 if(v%2!=0){	
+		out+=" -" + v;
+	}
+	}
+	})
+	console.log(out);
+}
+
+
+var ar1 = function(){
+	this.vl = [];
+	this.setData = function(val)
+	        {
+            this.vl.push(val);
+	        }
+	 this.viewData = function(){
+	 	console.log(this.vl);
+	 }
+	 this.getlrodd = function(l,r){
+		var out ="";
+		var cnt =0;
+		this.vl.forEach(function(v,i){
+			if(v>=l && v<=r){
+				if(v%2!=0){	
+					out+=v+" , ";
+					cnt++;
+				}
+			}
+		})
+		console.log("Total Element is: " + cnt);
+		console.log(out);
+	 }       
+}
+
+var ar2 = function(){
+	this.vl = [1,2,3,4,5];
+	this.vl2 =[4,5,3];
+	this.setData = function(val){
+		this.vl2.push(val);
+	}
+	this.removeData = function(){
+		this.vl2.pop();
+	}
+	this.viewData = function(){
+		console.log("vl ele: " + this.vl);
+		console.log("vl2 ele: " + this.vl2);
+	}
+	this.getIndex = function(a1,a2,vll2){
+   	var a11,a22;
+	a1.forEach(function(v,i){
+	console.log("----> "  + v);
+	if(v == vll2){
+		a11 = i;
+		console.log("Element "+ v +" found in vl array at index: " + i);
+	}
+	})
+
+	a2.forEach(function(v1,i1){
+	console.log("----> "  + v1);
+	if(v1 == vll2){
+		a22 = i1;
+		console.log("Element "+ v1 +" found at vl2 array  index: " + i1);
+		}
+	})
+
+
+   if(a22==a11){
+   	console.log("-------YES--------");
+   }
+   else
+   {
+   	console.log("-------NO--------");
+   }
+
+		 //console.log("----> "  + a1.length + " - " + a1 + " - " + a2);
+	}
+}
+
+var a = new ar2();
+// a.getIndex(a.vl,a.vl2,4);
+
+
+//https://www.indiacontent.in/faces/jsp/dn.jsp?imgname=sites%2Findiacontent%2F0%2Fimages%2Fproduct%2Fprivate%2F00%2F00%2F05%2F43%2F73%2F23%2F5437323%2Fsmall-FARMERS.jpg
+
+var ta = [
+[1 ,2 ,3 ], //00,01,02
+[4 ,5 ,6 ], //10,11,12
+[7 ,8 ,9 ]  //20,21,22
+//[10,11,12]  //30,31,32
+];
+
+var out1 ="";
+for(var i=0;i<ta.length;i++){
+for(var j=0;j<ta[0].length;j++){
+	if(i==j){
+		
+out1 +=" " + ta[i][j];
+}
+
+
+}
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ang</title>
+	<script src="../angular.min.js"></script>
+	<script type="text/javascript" src="../angular-sanitize.js"></script>
+</head>
+<body ng-app="app">
+	<div class="content" ng-controller="ctrl1">
+		<input type="text" ng-model="sent" value="">
+	<span ng-bind-html="sent"></span>
+
+
+	</div>
+	
+<script>
+var a1 = angular.module('app', ["ngSanitize"]);
+a1.controller('ctrl1', ['$scope','$interpolate', function($scope,$interpolate){
+	$scope.fname = "Atest ";
+	var templateString = "testt {{name1}}";
+	var minsc = { "name1":"<strong>ttttt</strong>"};
+	$scope.sent = $interpolate(templateString)(minsc);
+}])
+</script>
+</body>
+</html>

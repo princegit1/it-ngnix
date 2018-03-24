@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Html</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../../assets/css/map.css" />
+<style type="text/css">
+ul#listul{position: absolute;width: 85%;list-style-type: none;background: #fff;padding: 0;box-shadow: 0 0 2px #ccc;margin: 0;    text-align: left;z-index: 111; display:none; max-height: 300px; overflow-y: scroll;}
+ul#listul li{ padding:5px 10px;border-bottom: 1px solid #eee; cursor: pointer;}
+.ammapDescriptionWindow.amcharts-description-div{ display: none; }
+</style><script type='text/javascript'>
+	var _comscore = _comscore || [];
+	_comscore.push({ c1: "2", c2: "8549097" });
+	(function() {
+	var s = document.createElement("script"), el = document.getElementsByTagName("script")[0];
+	s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+	el.parentNode.insertBefore(s, el);
+	})();
+	</script><noscript><img src="http://b.scorecardresearch.com/p?c1=2&amp;ac2=8549097&amp;cv=2.0&amp;cj=1"/></noscript>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	ga('create', 'UA-795349-17', 'auto');
+	ga('send', 'pageview');
+	
+	</script>
+</head>
+<body>
+<script src="../../assets/js/ammap_election.js"></script>         
+<script src="../../assets/js/punjab-map.js"></script>
+<script src="../../assets/js/light.js"></script>
+   
+
+
+<div class="election_map_container">
+<img src="../../assets/images/loader.gif" class="loader_image_main" alt="Data is Loading..." />
+<div class="map_container">
+
+<div class="left_align_candidates">
+<div class="top_part">
+  <!-- <input type="text" name="Search" id="search_candidate" onClick="candidate_data(this.value)">  -->
+      
+      <input type="text" name="Search" id="search_candidate" placeholder="Search Candidate..." onkeyup="autopick_t()"> 
+  <span id="close_t">X</span>
+
+
+  <ul id="listul">
+
+  </ul>
+
+</div>
+<div class="bottom_part">
+
+
+
+
+</div>
+</div>
+<div id="chartdiv"></div>
+<div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+</div>
+
+<script src="../../assets/js/jquery.min.js"></script>
+
+<script>
+$.noConflict();
+var map;
+try{
+jQuery.getJSON('../../json/provider_json/punjab-provider.json', function (data) {
+map = AmCharts.makeChart("chartdiv", {
+  "type": "map",
+  "theme": "light",
+  "images": [
+      {
+        "type": "circle",
+        "label": "Circle Test",
+        "top": 100,
+        "left": 100
+      }
+    ],    
+  "dataProvider": data,
+  "smallMap": {
+   "backgroundAlpha": 0.4
+         },
+  "zoomduration":0.8,
+  "areasSettings": {
+    "bringForwardOnHover":true, 
+    "autoZoom": true,
+    "color": "#1A5FFF",
+    "rollOverColor": "#00298B",
+    "descriptionWindowY": 20,
+    "descriptionWindowX": 500,
+    "descriptionWindowWidth": 300,
+    "descriptionWindowHeight": 330
+  },
+  "zoomControl": {
+    "zoomControlEnabled": true,
+    "bottom":50,
+    "right":10
+  },
+   "listeners": [{
+    "event": "clickMapObject",
+    "method": function(event) {
+      document.getElementById("search_candidate").value =  event.mapObject.title ;
+       document.getElementById("search_candidate").focus();
+       candidate_data(event.mapObject.title); 
+       setTimeout(overflow_ys,1000);
+    }
+  }]
+});
+});
+}catch(e){
+  console.log(e);
+}
+
+
+function search_cn(){  
+var d1v = document.getElementById("search_candidate").value;
+//console.log(d1v);
+
+if(d1v!=''){
+document.getElementById("close_t").style.display="block";
+}
+else
+{
+document.getElementById("close_t").style.display="none";  
+}
+
+}
+
+function cleardata(){
+  
+  document.getElementById("search_candidate").value="";
+  jQuery('.bottom_part').html('');
+}
+
+document.getElementById("search_candidate").addEventListener("focus", search_cn);
+document.getElementById("search_candidate").addEventListener("blur", search_cn); 
+document.getElementById("close_t").addEventListener("click", cleardata); 
+
+
+
+function clear_ulist(){
+
+  document.getElementById("listul").style.display="none"; 
+}
+function overflow_ys()
+{
+var length_left_sec = jQuery('.bottom_part').children('.candidate_row').length;
+console.log("height_left_sec: " + length_left_sec);  
+if(length_left_sec>=7)  
+{
+jQuery('.bottom_part').addClass('overflow_scroll');
+}
+else   
+{
+jQuery('.bottom_part').removeClass('overflow_scroll');      
+}
+}
+
+</script>
+
+
+
+<script>
+
+
+var mapData = [];
+var candidate_data;
+var availableTags = [
+"19001,Sujanpur","19002,Bhoa","19003,Pathankot","19004,Gurdaspur","19005,Dina Nagar","19006,Qadian","19007,Batala","19008,Shri Hargobindpur","19009,Fatehgarh Churian","19010,Dera Baba Nanak","19011,Ajnala","19012,Raja Sansi","19013,Majitha","19014,Jandiala Guru","19015,Amritsar North","19016,Amritsar West","19017,Amritsar Central","19018,Amritsar East","19019,Amritsar South","19020,Attari","19021,Tarn Taran","19022,Khemkaran","19023,Patti","19024,Khadur Sahib","19025,Baba Bakala","19026,Bhullath","19027,Kapurthala","19028,Sultanpur Lodhi","19029,Phagwara","19030,Phillaur","19031,Nakodar","19032,Shahkot","19033,Kartarpur","19034,Jalandhar West","19035,Jalandhar Central","19036,Jalandhar North","19037,Jalandhar Cantt","19038,Adampur","19039,Mukerian","19040,Dasua","19041,Urmar","19042,Sham Chaurasi","19043,Hoshiarpur","19044,Chabbewal","19045,Garhshankar","19046,Banga","19047,Nawanshahr","19048,Balachaur","19049,Anandpur Sahib","19050,Rup Nagar","19051,Chamkaur Sahib","19052,Kharar","19053,S.A.S. Nagar","19054,Bassi Pathan","19055,Fatehgarh Sahib","19056,Amloh","19057,Khanna","19058,Samrala","19059,Sahnewal","19060,Ludhiana East","19061,Ludhiana South","19062,Atam Nagar","19063,Ludhiana Central","19064,Ludhiana West","19065,Ludhiana North","19066,Gill","19067,Payal","19068,Dakha","19069,Raikot","19070,Jagraon","19071,Nihal Singh Wala","19072,Bagha Purana","19073,Moga","19074,Dharamkot","19075,Zeera","19076,Firozpur","19077,Firozpur Rural","19078,Guru Har Sahai","19079,Jalalabad","19080,Fazilka","19081,Abohar","19082,Baluana","19083,Lambi","19084,Gidarbaha","19085,Malout","19086,Mukatsar","19087,Faridkot","19088,Kot Kapura","19089,Jaiton","19090,Rampura Phul","19091,Bhucho Mandi","19092,Bathinda Urban","19093,Bathinda Rural","19094,Talwandi Sabo","19095,Maur","19096,Mansa","19097,Sardulgarh","19098,Budhlada","19099,Lehra","19100,Dirba","19101,Sunam","19102,Bhadaur","19103,Barnala","19104,Mehal Kalan","19105,Malerkotla","19106,Amargarh","19107,Dhuri","19108,Sangrur","19109,Nabha","19110,Patiala Rural","19111,Rajpura","19112,Dera Bassi","19113,Ghanaur","19114,Sanaur","19115,Patiala","19116,Samana","19117,Shutrana"
+
+         ];
+
+var alld = "";
+
+function autopick_t() {
+    var input, filter, ul, li, a, i;
+    document.getElementById("listul").style.display="block";
+    input = document.getElementById("search_candidate");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("listul");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i];    
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+
+        }
+    }
+}
+
+
+jQuery.each(availableTags, function(index){
+var at = [availableTags[index].split(",")[0]];
+var at1=[availableTags[index].split(",")[1]];
+
+//nsole.log(at1);
+     alld+="<li data-prt1='"+at+"'>"+at1+"</li>";
+});
+jQuery('#listul').append(alld);
+
+jQuery(document).ready(function(){
+overflow_ys();
+})
+
+  
+jQuery('ul#listul li').click(function(){    
+var val_aut  = jQuery(this).text();
+var id_val_aut = jQuery(this).attr('data-prt1');
+var sl_val_aut = val_aut; 
+  
+//alert(sl_val_aut);       
+jQuery('#search_candidate').val(sl_val_aut);
+jQuery('#listul').css('display','none');
+candidate_data(sl_val_aut, id_val_aut);   
+jQuery('#close_t').css('display','block');
+
+
+})
+
+
+jQuery('.election_map_container').click(function(){    
+clear_ulist();
+})
+
+jQuery('#search_candidate').blur(function(){              
+  //alert("asdasdasd");    
+  var val_d = jQuery(this).val();     
+  candidate_data(val_d);     
+})  
+jQuery('input[type=text]').on('keydown', function(e) {
+    if (e.which == 13) {
+      var val_d = jQuery(this).val();     
+  candidate_data(val_d);  
+    }
+});
+
+jQuery.getJSON('../../json/candidate_json1/punjab-candidate.json', function (data) {
+mapData = data;
+candidate_data = function (district, areaid){
+  try {
+  var showData = jQuery('.bottom_part'); 
+
+  if(district!=null && district!=""){
+     showData.html('<div class="loader_data_image"><img src="../../assets/images/loader.gif" class="loader_image" alt="Data is Loading..." /></div>');  
+    
+      var json_obj = mapData;
+ 
+          
+    setTimeout(function(){
+       var content ='';
+       showData.empty();
+          if(json_obj[district]!=""){
+      for(var i in json_obj[district])    
+      {
+
+      
+        content = '<div class="candidate_row"><div class="left_part_cn"><img src="../../assets/images/image.gif" class="candidate_image"><span class="candidate_desc"><h3>'+json_obj[district][i].candidate+'</h3><h4>'+json_obj[district][i].party+'</h4></span></div><div class="right_part_cn"><span class="win_lose '+json_obj[district][i].win_loss+'">'+json_obj[district][i].win_loss+'</span><span class="share_icon_t"><a href="#" title=""></a></span></div></div>';
+          showData.append(content);  
+     
+  
+      }  
+      }
+      else
+      {
+       showData.html('No Data');    
+       console.log("No Data");     
+      }
+
+      if(areaid != undefined){
+      var mapObj = map.getObjectById(areaid);
+      if(mapObj != undefined){
+        map.clickMapObject(mapObj);
+      }
+     }  
+    },500);
+   
+
+  }   
+  else
+  {
+    showData.empty();
+    var content = '<div class="candidate_row"><h3>No Data found.</h3></div>';
+        showData.append(content);
+    console.log("No Data");
+  }
+}catch(e)
+{
+  console.log("Exception" + e);   
+}
+}
+  });
+
+
+
+
+
+</script>
+
+ 
+
+</body>
+</html>

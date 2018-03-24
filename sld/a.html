@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TTT</title>
+</head>
+<body>
+<div id="placeholder"></div>
+<div id="MyProgressBar">Loading..</div>
+<script src="http://media2.intoday.in/indiatoday/hitachi/js/jquery-3.2.1.min.js"></script>
+<script>
+$(document).ready(function(){
+var myurl="http://localhost:71/sld/index.html";
+$("#placeholder").load(myurl, function() {
+$("#MyProgressBar").hide();
+});
+})
+</script>
+
+</body>
+</html>

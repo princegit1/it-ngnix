@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HSIC</title>
+<link href="http://media2.intoday.in/indiatoday/hitachi/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="http://media2.intoday.in/indiatoday/hitachi/css/hitachi_event_2017.css" rel="stylesheet" type="text/css"/>
+<script src="http://media2.intoday.in/indiatoday/hitachi/js/jquery-3.2.1.min.js">
+            </script>
+
+            
+<style>
+.fsize{font-size:14px !important;}
+.fsize strong{color:#c00}
+.text_moderator{text-transform:none;font-weight:300;font-family: 'CenturyGothic';margin-top:0;}   
+.text_moderator span{font-weight:600;}
+.programme .cont_prog .speaker_image{border:1px solid #cacaca;margin-top: 10px;}  
+.programme .cont_prog .hd_p{margin-bottom:0;}   
+.row.hdn_pan{margin-bottom:0;}
+.row.moder{margin-bottom:0;margin-top:10px;}  
+.borderRight{border-right:0;}
+@media screen and (max-width:767px){
+.programme .cont_prog .speaker_image{margin-top:0;}                      
+}
+</style>            
+</head>
+<body>
+<div id="hsic_bodycontent">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 about_container">
+        <div class="heading_page_hsic">
+          <h3> Agenda </h3>
+        </div>
+        <div class="content_page_hsic">
+          <div class="programme">
+            <div class="cont_prog">
+             
+               <div class="prog_cont_hsic">
+
+               </div>
+              
+            
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+
+var docArr = [
+{
+  "heading":"Leveraging i4.0 to boost top- and bottom-lines",
+  "time_place":"14:30 – 15:45 hrs <br> Mysore Hall ",
+  "moderator":{
+    "name":"Sudhanshu Mittal",
+    "designation":"Director -- IoT",
+    "company":"Centre of Excellence for IOT, NASSCOM"
+  },
+  "panellist":[
+  {
+    "name":"KB Nagaraju",
+    "designation":"CEO",
+    "company":"Innovative Retail Concepts Ltd (BigBasket)",
+    "image_data":"http://media2.intoday.in/indiatoday/youthsummit/bhopal/2017/sponsors/demo-pic.png"
+  },
+ {
+    "name":"Ravi Raghavan",
+    "designation":"MD & CEO",
+    "company":"Bharat Fritz Werner",
+    "image_data":"http://media2.intoday.in/indiatoday/youthsummit/bhopal/2017/sponsors/demo-pic.png"
+  },
+  {
+    "name":"S Ganesh Mani",
+    "designation":"SVP",
+    "company":"Hyundai Motor India Ltd",
+    "image_data":"http://media2.intoday.in/indiatoday/youthsummit/bhopal/2017/sponsors/demo-pic.png"
+  },
+  {
+    "name":"Anindya Bhattacharya",
+    "designation":"Lead Digital Operations",
+    "company":"Hitachi Consulting",
+    "image_data":"http://media2.intoday.in/indiatoday/youthsummit/bhopal/2017/sponsors/demo-pic.png"
+  }
+  ]
+},
+{
+  "heading":"The Future of Transportation",
+  "time_place":"14:30 – 15:45 hrs <br> Magnolia Hall ",
+  "moderator":{
+    "name":"Dr Sanjay Gupta",
+    "designation":"Professor and HOD",
+    "company":"Dept of Transport Planning, School of Planning and Architecture"
+  },
+  "panellist":[
+  {
+    "name":"Dr. N Rajendran",
+    "designation":"CTO",
+    "company":"National Payments Corporation of India",
+    "image_data":"http://media2.intoday.in/indiatoday/youthsummit/bhopal/2017/sponsors/demo-pic.png"
+  }
+  ] 
+}
+];
+
+var out='';
+$(docArr).each(function(i){
+ out+='<div class="row"><div class="col-lg-3 col-md-3 col-sm-3 col-xs-4"><div class="timings_hsic">14:30 - 15:30 hrs <br>Mysore Hall</div></div><div class="col-lg-9 col-md-9 col-sm-9 col-xs-8">';
+
+  out+='<div class="row"><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hd_p">'+ docArr[i].heading +'</div></div><div class="row hdn_pan"><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hd_p"><h4 class="speaker_redtxt">Panellist:</h4></div></div><div class="row">';
+
+   $(docArr[i].panellist).each(function(i2){  
+
+  out+='<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 speaker_img"> <img class="speaker_image" src="'+ docArr[i].panellist[i2].image_data +'" alt=""><p class="borderRight"> <strong>'+ docArr[i].panellist[i2].name +'</strong> '+ docArr[i].panellist[i2].designation +' <br>'+ docArr[i].panellist[i2].company +'</p></div>';
+
+})
+
+out+='</div></div></div>';
+
+})
+$('.prog_cont_hsic').html(out);
+
+})
+</script>
+
+  
+
+
+</body>
+</html>
